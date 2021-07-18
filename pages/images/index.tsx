@@ -1,7 +1,7 @@
 import Layout from "components/Layout";
 
 const ImagesIndex = () => (
-  <Layout>
+  <Layout title='images'>
     <div>Images</div>
   </Layout>
 )

@@ -1,7 +1,7 @@
 import Layout from "components/Layout";
 
 const ContactIndex = () => (
-  <Layout>
+  <Layout title='contact'>
     <div>Contact</div>
   </Layout>
 )
