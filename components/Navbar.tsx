@@ -6,7 +6,7 @@ export default function Navbar() {
   const [navbarState, setNavbarState] = useState(true);
 
   return (
-    <div className={`${styles.navbar} ${navbarState && styles.responsive}`}>
+    <div className={`${styles.navbar} ${navbarState && styles.expanded}`}>
       {navButtons.map(button => (
         <NavButton
           key={button.path}

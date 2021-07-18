@@ -1,14 +1,13 @@
+import { NavButtonProps } from "lib/models";
 import Link from "next/link";
+import styles from 'styles/Home.module.css'
 
 const NavButton = (props: NavButtonProps) => (
-  <Link href={props.path}>
-    <span>{props.label}</span>
-  </Link>
+  <div className={styles['navbar-button']}>
+    <Link href={props.path}>
+      <span>{props.label}</span>
+    </Link>
+  </div>
 );
-
-interface NavButtonProps {
-  path: string,
-  label: string
-}
 
 export default NavButton
