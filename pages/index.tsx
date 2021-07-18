@@ -1,19 +1,10 @@
-import Navbar from 'components/Navbar'
-import Head from 'next/head'
-import React from 'react'
-import styles from 'styles/Home.module.css'
+import Image from 'next/image'
+import Layout from "../components/Layout";
 
-export default function Home() {
-  return (
-    <div>
-      <Head>
-        <title>Dan N. Tran</title>
-      </Head>
-      
-      <main className={styles.main}>
-        <Navbar />
-      </main>
+const Index = () => (
+  <Layout>
+    <Image src="/alexis-magnone-KY_LNtTi7_Y-unsplash.jpg" alt="me" width="440" height="600" objectFit="cover" />
+  </Layout>
+)
 
-    </div>
-  )
-}
+export default Index;

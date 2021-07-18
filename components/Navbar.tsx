@@ -1,17 +1,21 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styles from 'styles/Home.module.css'
+import NavButton from './NavButton';
 
 export default function Navbar() {
   const [navbarState, setNavbarState] = useState(true);
 
   return (
     <div className={`${styles.navbar} ${navbarState && styles.responsive}`}>
-      <div>dan n. tran</div>
-      <div>texts</div>
-      <div>images</div>
-      <div>contact</div>
+      {navButtons.map(button => (
+        <NavButton
+          key={button.path}
+          path={button.path}
+          label={button.label}
+        />
+      ))}
       <div
-        className={styles['navbar-button']}
+        className={styles['navbar-toggle']}
         onClick={() => setNavbarState(!navbarState)}
       >
         {navbarState ? 'v' : '^'}
@@ -20,3 +24,21 @@ export default function Navbar() {
   );
 };
 
+const navButtons = [
+  {
+    label: "dan n. tran",
+    path: "/"
+  },
+  {
+    label: "texts",
+    path: "/texts"
+  },
+  {
+    label: "images",
+    path: "/images"
+  },
+  {
+    label: "contact",
+    path: "/contact"
+  }
+];

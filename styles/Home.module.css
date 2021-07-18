@@ -15,7 +15,7 @@
   padding: 1em;
 }
 
-.navbar div.navbar-button {
+.navbar div.navbar-toggle {
   display: none;
 }
 
@@ -24,7 +24,7 @@
     display: none;
   }
 
-  .navbar div.navbar-button {
+  .navbar div.navbar-toggle {
     display: block;
     float: right;
   }
@@ -34,7 +34,7 @@
     position: relative;
   }
 
-  .navbar.responsive div.navbar-button {
+  .navbar.responsive div.navbar-toggle {
     position: absolute;
     bottom: 0;
     right: 0;
