@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from 'styles/Home.module.css'
+
 import NavButton from './NavButton';
 
 export default function Navbar() {

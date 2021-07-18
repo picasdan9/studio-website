@@ -1,6 +1,7 @@
 import fs from 'fs'
-import { join } from 'path'
 import matter from 'gray-matter'
+import { join } from 'path'
+
 import { Post, TextsDb } from './models';
 
 let postsTable: TextsDb = {}
@@ -36,6 +37,7 @@ function retrievePostBySlug(slug: string): Post {
   return {
     markdownBody: content,
     metadata: {
+      slug: slug,
       title: data.title,
       type: data.type || '',
       year: data.year,

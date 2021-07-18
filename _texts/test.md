@@ -1,6 +1,6 @@
 ---
 title: 'Learn How to Pre-render Pages Using Static Generation with Next.js'
-type: testType
+type: film review
 year: 2020
 externalSiteName: Google
 externalSiteUrl: google.com

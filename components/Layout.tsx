@@ -1,8 +1,7 @@
-import Head from "next/head";
-
 import NavBar from "components/Navbar";
-import styles from 'styles/Home.module.css'
 import { Page } from "lib/models";
+import Head from "next/head";
+import styles from 'styles/Home.module.css'
 
 const Layout = (props: Page) => (
   <div className="Layout">
@@ -14,7 +13,7 @@ const Layout = (props: Page) => (
 
     <main className={styles.main}>
       <NavBar />
-      <div className="Content">{props.children}</div>
+      <div>{props.children}</div>
     </main>
   </div>
 );

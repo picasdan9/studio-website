@@ -25,6 +25,7 @@ export interface Post {
 }
 
 export interface Metadata {
+  slug: string,
   title: string,
   type: string,
   year: number,

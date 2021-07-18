@@ -1,6 +1,8 @@
 import Layout from "components/Layout";
-import { getAllPostMetadata, getAllPosts } from "lib/api";
+import { getAllPostMetadata } from "lib/api";
 import { Metadata, TextsIndexProps } from "lib/models";
+import Link from "next/link";
+import React from "react";
 
 const TextsIndex = (props: TextsIndexProps) => (
   <Layout title='texts'>
@@ -10,8 +12,10 @@ const TextsIndex = (props: TextsIndexProps) => (
 
 const metadataToListItem = (metadata: Metadata) => (
   <div>
-    <i>{metadata.title}</i>
-    , {metadata.type} 
+    <Link href={{ pathname: `/texts/${metadata.slug}` }}>
+      <i>{metadata.title}</i>
+    </Link>
+    , {metadata.type}
     {metadata.externalSite.name && (
       <>, <a href={metadata.externalSite.url}>{metadata.externalSite.name}</a></>
     )}
