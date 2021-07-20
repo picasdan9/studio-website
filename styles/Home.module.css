@@ -3,53 +3,15 @@
   margin: 0 auto;
 }
 
-.navbar {
+.navbar-home {
   font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  justify-content: space-between;
-  width: 40%;
-  overflow: hidden;
-}
-
-.navbar div.navbar-button {
-  padding: 1em;
   font-size: medium;
 }
 
-.navbar div.navbar-button:first-child {
-  padding-left: 0;
-}
-
-.navbar div.navbar-toggle {
-  display: none;
-}
-
-@media screen and (max-width: 600px) {
-  .navbar div.navbar-button:not(:first-child) {
-    display: none;
-  }
-
-  .navbar div.navbar-toggle {
-    display: block;
-    float: right;
-  }
-
-  .navbar.expanded {
-    flex-direction: column-reverse;
-    position: relative;
-  }
-
-  .navbar.expanded div.navbar-toggle {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
-
-  .navbar.expanded div.navbar-button {
-    float: none;
-    display: block;
-    padding: 0;
-  }
+.navbar-button {
+  margin: 0 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
 }
 
 .text-post {
