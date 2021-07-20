@@ -35,8 +35,8 @@ const navButtons = [
     path: "/texts"
   },
   {
-    label: "images",
-    path: "/images"
+    label: "works",
+    path: "/works"
   },
   {
     label: "contact",

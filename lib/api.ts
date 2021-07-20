@@ -2,49 +2,64 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import { join } from 'path'
 
-import { Post, TextsDb } from './models';
+import { Post, PostsDb } from './models';
 
-let postsTable: TextsDb = {}
-
-const textsDirectory = join(process.cwd(), '_texts')
-
-export function getPostSlugs(): string[] {
-  return fs.readdirSync(textsDirectory).map((filename: string) => filename.replace(/\.md$/, ''));
+const posts: PostsDb = {
+  text: {},
+  work: {}
 }
 
-export function getPostBySlug(slug: string): Post {
-  if (!(slug in postsTable)) {
-    postsTable[slug] = retrievePostBySlug(slug);
+const workingDirectory = process.cwd()
+const directories: ({[key: string]: string}) = {
+  text: join(workingDirectory, '_texts'),
+  work: join(workingDirectory, '_works')
+}
+
+export function getPostSlugs(table: string): string[] {
+  return fs.readdirSync(directories[table]).map((filename: string) => filename.replace(/\.md$/, ''));
+}
+
+export function getPostBySlug(table: string, slug: string): Post {
+  if (!(slug in posts[table])) {
+    posts[table][slug] = retrievePostBySlug(table, slug);
   }
-  return postsTable[slug]
+  return posts[table][slug]
 }
 
-export function getAllPosts(): Post[] {
-  return getPostSlugs()
-    .map(getPostBySlug)
+export function getAllPosts(table: string): Post[] {
+  return getPostSlugs(table)
+    .map(slug => getPostBySlug(table, slug))
     .sort((post1, post2) => post1.metadata.year - post2.metadata.year);
 }
 
-export function getAllPostMetadata() {
-  return getAllPosts().map(post => post.metadata)
+export function getAllPostMetadata(table: string) {
+  return getAllPosts(table).map(post => post.metadata)
 }
 
 
-function retrievePostBySlug(slug: string): Post {
-  const fullPath = join(textsDirectory, `${slug}.md`)
+function retrievePostBySlug(table: string, slug: string): Post {
+  const fullPath = join(directories[table], `${slug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
-  return {
+  const post: Post = {
     markdownBody: content,
     metadata: {
       slug: slug,
       title: data.title,
-      type: data.type || '',
       year: data.year,
-      externalSite: {
-        name: data.externalSiteName || '',
-        url: data.externalSiteUrl || ''
-      }
     }
   }
+  if (table === 'text') {
+    if (data.type) 
+      post.metadata.type = data.type
+    if (data.externalSite)
+      post.metadata.externalSite = {
+        name: data.externalSiteName,
+        url: data.externalSiteUrl
+      }
+  } else if (table === 'work') {
+    post.metadata.images = data.images
+  }
+
+  return post
 }

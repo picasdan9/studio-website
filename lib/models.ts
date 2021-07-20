@@ -10,14 +10,15 @@ export interface NavButtonProps {
   label: string;
 }
 
+export interface PostsDb {
+  [key: string]: Table
+}
 
-// Texts
-
-export interface TextsDb {
+export interface Table {
   [key: string]: Post;
 }
 
-export interface TextsIndexProps {
+export interface PageIndexProps {
   postMetadata: Metadata[];
 }
 
@@ -29,9 +30,11 @@ export interface Post {
 export interface Metadata {
   slug: string;
   title: string;
-  type: string;
   year: number;
-  externalSite: ExternalSite;
+  type?: string;
+  externalSite?: ExternalSite;
+  coverImage?: string;
+  images?: string[];
 }
 
 export interface ExternalSite {

@@ -24,14 +24,14 @@ const TextPost = (post: Post) => (
 export default TextPost
 
 export async function getStaticProps({ params }: Params) {
-  const post = getPostBySlug(params.slug)
+  const post = getPostBySlug('text', params.slug)
   return {
     props: { ...post },
   }
 }
 
 export async function getStaticPaths() {
-  const slugs = getPostSlugs();
+  const slugs = getPostSlugs('text');
   return {
     paths: slugs.map((slug: string) => ({
       params: {
