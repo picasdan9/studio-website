@@ -1,4 +1,4 @@
-import NavBar from "components/Navbar";
+import CustomNavBar from "components/CustomNavbar";
 import { Page } from "lib/models";
 import Head from "next/head";
 import styles from 'styles/Home.module.css'
@@ -12,7 +12,7 @@ const Layout = (props: Page) => (
     </Head>
 
     <main className={styles.main}>
-      <NavBar />
+      <CustomNavBar />
       <div>{props.children}</div>
     </main>
   </div>
