@@ -7,11 +7,26 @@ body {
   font-size: large;
 }
 
-h1 {
+h1, h2, h3 {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
   font-size: larger;
   max-width: 400px;
   margin: 0 0 2em 0;
+}
+
+h2 {
+  font-size: large;
+}
+
+h3 {
+  font-size: medium;
+}
+
+h2 ~ p {
+  margin-bottom: 2em;
 }
 
 a {

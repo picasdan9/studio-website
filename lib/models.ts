@@ -1,38 +1,40 @@
+import React from "react";
+
 export interface Page {
-  title: string,
-  children: React.ReactNode
+  title: string;
+  children: React.ReactNode;
 }
 
 export interface NavButtonProps {
-  path: string,
-  label: string
+  path: string;
+  label: string;
 }
 
 
 // Texts
 
 export interface TextsDb {
-  [key: string]: Post
+  [key: string]: Post;
 }
 
 export interface TextsIndexProps {
-  postMetadata: Metadata[]
+  postMetadata: Metadata[];
 }
 
 export interface Post {
-  markdownBody: string,
-  metadata: Metadata
+  markdownBody: string;
+  metadata: Metadata;
 }
 
 export interface Metadata {
-  slug: string,
-  title: string,
-  type: string,
-  year: number,
-  externalSite: ExternalSite
+  slug: string;
+  title: string;
+  type: string;
+  year: number;
+  externalSite: ExternalSite;
 }
 
 export interface ExternalSite {
-  name: string,
-  url: string
+  name: string;
+  url: string;
 }
