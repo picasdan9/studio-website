@@ -1,8 +1,8 @@
 import Layout from "components/Layout";
 
 const ContactIndex = () => (
-  <Layout title='contact'>
-    <div>Contact</div>
+  <Layout title="about">
+    <div>About</div>
   </Layout>
 )
 

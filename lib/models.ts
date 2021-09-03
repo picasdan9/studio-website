@@ -27,10 +27,14 @@ export interface Post {
   metadata: Metadata;
 }
 
+export interface MetadataGroupbyYear {
+  [key: string]: Metadata[]
+}
+
 export interface Metadata {
   slug: string;
   title: string;
-  year: number;
+  year: string;
   type?: string;
   externalSite?: ExternalSite;
   coverImage?: string;

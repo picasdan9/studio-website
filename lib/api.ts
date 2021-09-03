@@ -28,8 +28,7 @@ export function getPostBySlug(table: string, slug: string): Post {
 
 export function getAllPosts(table: string): Post[] {
   return getPostSlugs(table)
-    .map(slug => getPostBySlug(table, slug))
-    .sort((post1, post2) => post1.metadata.year - post2.metadata.year);
+    .map(slug => getPostBySlug(table, slug));
 }
 
 export function getAllPostMetadata(table: string) {
@@ -52,7 +51,7 @@ function retrievePostBySlug(table: string, slug: string): Post {
   if (table === 'text') {
     if (data.type) 
       post.metadata.type = data.type
-    if (data.externalSite)
+    if (data.externalSiteName && data.externalSiteUrl)
       post.metadata.externalSite = {
         name: data.externalSiteName,
         url: data.externalSiteUrl

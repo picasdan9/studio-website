@@ -1,23 +1,53 @@
 import Layout from "components/Layout";
 import { getAllPostMetadata } from "lib/api";
-import { Metadata, PageIndexProps } from "lib/models";
-import Link from "next/link";
+import { Metadata, MetadataGroupbyYear, PageIndexProps } from "lib/models";
 import React from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import styles from 'styles/Home.module.css'
 
-const TextsIndex = (props: PageIndexProps) => (
-  <Layout title='texts'>
-    {props.postMetadata.map(metadataToListItem)}
-  </Layout>
+
+const TextsIndex = (props: PageIndexProps) => {
+  const metadataGroupbyYear = props.postMetadata.reduce((metadataGroups: MetadataGroupbyYear, metadata: Metadata) => {
+    if (metadata.year in metadataGroups)
+      metadataGroups[metadata.year].push(metadata);
+    else
+      metadataGroups[metadata.year] = [metadata];
+    return metadataGroups;
+  }, {});
+
+  return (
+    <Layout title='texts'>
+      <Container className={styles["text-index-page-container"]}>
+        {Object.entries(metadataGroupbyYear)
+            .sort((group1: [string, Metadata[]], group2: [string, Metadata[]]) => parseInt(group2[0], 10) - parseInt(group1[0], 10))
+            .map((group: [string, Metadata[]]) => metadataGroupToBlock(...group))}
+      </Container>
+    </Layout>
+  )
+}
+
+const metadataGroupToBlock = (year: string, metadataList: Metadata[]) => (
+  <Row key={year}>
+    <Col sm={2} className={styles["block-header"]}>{year}</Col>
+    <Col sm={8}>{metadataList.map(metadataToLine)}</Col>
+  </Row>
 )
 
-const metadataToListItem = (metadata: Metadata) => (
+const metadataToLine = (metadata: Metadata) => (
   <div key={metadata.slug}>
-    <Link href={{ pathname: `/texts/${metadata.slug}` }}>
-      <i>{metadata.title}</i>
-    </Link>
-    , {metadata.type}
-    {metadata.externalSite && (
-      <>, <a href={metadata.externalSite.url}>{metadata.externalSite.name}</a></>
+    {metadata.externalSite ? (
+      <>
+        <a href={metadata.externalSite.url}><i>{metadata.title}</i></a>
+        <span className={styles["text-index-page-metadata-sans"]}>
+          , {metadata.type}
+          , {metadata.externalSite.name}
+        </span>
+      </>
+    ) : (
+      <>
+        <i>{metadata.title}</i>
+        <span className={styles["text-index-page-metadata-sans"]}>, {metadata.type}</span>
+      </>
     )}
   </div>
 )

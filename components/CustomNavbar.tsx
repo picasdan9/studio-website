@@ -30,7 +30,7 @@ const navButtons = [
     path: "/works"
   },
   {
-    label: "contact",
-    path: "/contact"
+    label: "about",
+    path: "/about"
   }
 ];
