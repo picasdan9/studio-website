@@ -1,5 +1,7 @@
+const isProd = process.env.NODE_ENV === 'production';
+
 module.exports = {
   reactStrictMode: true,
-  assetPrefix:
-    process.env.NODE_ENV === 'production' ? '/nextjs-github-pages/' : '',
+  basePath: isProd ? '/night-personal-site' : '',
+  assetPrefix: isProd ? '/night-personal-site/' : '',
 };
