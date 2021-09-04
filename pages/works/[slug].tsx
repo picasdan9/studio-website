@@ -14,7 +14,7 @@ const WorkPost = (post: Post) => {
       <div className={styles['work-post']}>
         <h1>{post.metadata.title}</h1>
         <ReactMarkdown>{post.markdownBody}</ReactMarkdown>
-        <ImageList variant='masonry' cols={3} gap={8}>
+        {/* <ImageList variant='masonry' cols={3} gap={8}>
         {(post.metadata.images || []).map((image) => (
           <ImageListItem key={image}>
             <Image
@@ -25,7 +25,7 @@ const WorkPost = (post: Post) => {
             />
           </ImageListItem>
         ))}
-      </ImageList>
+      </ImageList> */}
       </div>
     </Layout>
   );
