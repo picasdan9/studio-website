@@ -36,12 +36,9 @@ export interface Metadata {
   title: string;
   year: string;
   type?: string;
-  externalSite?: ExternalSite;
+  externalSiteName: string;
+  url: string;
   coverImage?: string;
   images?: string[];
 }
 
-export interface ExternalSite {
-  name: string;
-  url: string;
-}

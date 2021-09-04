@@ -40,22 +40,21 @@ function retrievePostBySlug(table: string, slug: string): Post {
   const fullPath = join(directories[table], `${slug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
+
   const post: Post = {
     markdownBody: content,
     metadata: {
       slug: slug,
       title: data.title,
       year: data.year,
+      externalSiteName: data.externalSiteName,
+      url: data.url
     }
   }
+
   if (table === 'text') {
     if (data.type) 
       post.metadata.type = data.type
-    if (data.externalSiteName && data.externalSiteUrl)
-      post.metadata.externalSite = {
-        name: data.externalSiteName,
-        url: data.externalSiteUrl
-      }
   } else if (table === 'work') {
     post.metadata.images = data.images
   }

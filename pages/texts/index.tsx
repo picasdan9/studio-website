@@ -5,7 +5,6 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import styles from 'styles/Home.module.css'
 
-
 const TextsIndex = (props: PageIndexProps) => {
   const metadataGroupbyYear = props.postMetadata.reduce((metadataGroups: MetadataGroupbyYear, metadata: Metadata) => {
     if (metadata.year in metadataGroups)
@@ -19,7 +18,8 @@ const TextsIndex = (props: PageIndexProps) => {
     <Layout title='texts'>
       <Container className={styles["text-index-page-container"]}>
         {Object.entries(metadataGroupbyYear)
-            .sort((group1: [string, Metadata[]], group2: [string, Metadata[]]) => parseInt(group2[0], 10) - parseInt(group1[0], 10))
+            .sort((group1: [string, Metadata[]], group2: [string, Metadata[]]) => 
+                parseInt(group2[0], 10) - parseInt(group1[0], 10))
             .map((group: [string, Metadata[]]) => metadataGroupToBlock(...group))}
       </Container>
     </Layout>
@@ -35,20 +35,13 @@ const metadataGroupToBlock = (year: string, metadataList: Metadata[]) => (
 
 const metadataToLine = (metadata: Metadata) => (
   <div key={metadata.slug}>
-    {metadata.externalSite ? (
-      <>
-        <a href={metadata.externalSite.url}><i>{metadata.title}</i></a>
+        <a href={metadata.url}><i>{metadata.title}</i></a>
         <span className={styles["text-index-page-metadata-sans"]}>
           , {metadata.type}
-          , {metadata.externalSite.name}
+          {metadata.externalSiteName && (
+            <>, {metadata.externalSiteName}</>
+          )}
         </span>
-      </>
-    ) : (
-      <>
-        <i>{metadata.title}</i>
-        <span className={styles["text-index-page-metadata-sans"]}>, {metadata.type}</span>
-      </>
-    )}
   </div>
 )
 
