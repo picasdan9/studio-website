@@ -1,9 +1,5 @@
-import Layout from "components/Layout";
+import Layout from 'components/Layout';
 
-const ContactIndex = () => (
-  <Layout title="about">
-    <div>About</div>
-  </Layout>
-)
+const ContactIndex = () => <Layout title='about'>WIP</Layout>;
 
-export default ContactIndex
+export default ContactIndex;

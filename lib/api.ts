@@ -1,45 +1,45 @@
-import fs from 'fs'
-import matter from 'gray-matter'
-import { join } from 'path'
+import fs from 'fs';
+import matter from 'gray-matter';
+import { join } from 'path';
 
 import { Post, PostsDb } from './models';
 
 const posts: PostsDb = {
   text: {},
-  work: {}
-}
+  work: {},
+};
 
-const workingDirectory = process.cwd()
-const directories: ({[key: string]: string}) = {
+const workingDirectory = process.cwd();
+const directories: { [key: string]: string } = {
   text: join(workingDirectory, '_texts'),
-  work: join(workingDirectory, '_works')
-}
+  work: join(workingDirectory, '_works'),
+};
 
 export function getPostSlugs(table: string): string[] {
-  return fs.readdirSync(directories[table]).map((filename: string) => filename.replace(/\.md$/, ''));
+  return fs
+    .readdirSync(directories[table])
+    .map((filename: string) => filename.replace(/\.md$/, ''));
 }
 
 export function getPostBySlug(table: string, slug: string): Post {
   if (!(slug in posts[table])) {
     posts[table][slug] = retrievePostBySlug(table, slug);
   }
-  return posts[table][slug]
+  return posts[table][slug];
 }
 
 export function getAllPosts(table: string): Post[] {
-  return getPostSlugs(table)
-    .map(slug => getPostBySlug(table, slug));
+  return getPostSlugs(table).map((slug) => getPostBySlug(table, slug));
 }
 
 export function getAllPostMetadata(table: string) {
-  return getAllPosts(table).map(post => post.metadata)
+  return getAllPosts(table).map((post) => post.metadata);
 }
 
-
 function retrievePostBySlug(table: string, slug: string): Post {
-  const fullPath = join(directories[table], `${slug}.md`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
-  const { data, content } = matter(fileContents)
+  const fullPath = join(directories[table], `${slug}.md`);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const { data, content } = matter(fileContents);
 
   const post: Post = {
     markdownBody: content,
@@ -47,19 +47,18 @@ function retrievePostBySlug(table: string, slug: string): Post {
       slug: slug,
       title: data.title,
       year: data.year,
-      url: data.url
-    }
-  }
+      url: data.url,
+    },
+  };
 
   if (data.externalSiteName)
     post.metadata.externalSiteName = data.externalSiteName;
 
   if (table === 'text') {
-    if (data.type) 
-      post.metadata.type = data.type
+    if (data.type) post.metadata.type = data.type;
   } else if (table === 'work') {
-    post.metadata.images = data.images
+    post.metadata.images = data.images;
   }
 
-  return post
+  return post;
 }

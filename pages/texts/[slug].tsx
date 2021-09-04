@@ -1,10 +1,10 @@
-import Layout from "components/Layout";
-import { getPostBySlug, getPostSlugs } from "lib/api";
-import { Post } from "lib/models";
-import { Params } from "next/dist/next-server/server/router";
-import React from "react"
+import Layout from 'components/Layout';
+import { getPostBySlug, getPostSlugs } from 'lib/api';
+import { Post } from 'lib/models';
+import { Params } from 'next/dist/next-server/server/router';
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import styles from 'styles/Home.module.css'
+import styles from 'styles/Home.module.css';
 
 const TextPost = (post: Post) => (
   <Layout title={post.metadata.title}>
@@ -21,13 +21,13 @@ const TextPost = (post: Post) => (
   </Layout>
 );
 
-export default TextPost
+export default TextPost;
 
 export async function getStaticProps({ params }: Params) {
-  const post = getPostBySlug('text', params.slug)
+  const post = getPostBySlug('text', params.slug);
   return {
     props: { ...post },
-  }
+  };
 }
 
 export async function getStaticPaths() {
@@ -35,9 +35,9 @@ export async function getStaticPaths() {
   return {
     paths: slugs.map((slug: string) => ({
       params: {
-        slug
-      }
+        slug,
+      },
     })),
-    fallback: false
-  }
+    fallback: false,
+  };
 }

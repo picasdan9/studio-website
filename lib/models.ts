@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export interface Page {
   title: string;
@@ -11,7 +11,7 @@ export interface NavButtonProps {
 }
 
 export interface PostsDb {
-  [key: string]: Table
+  [key: string]: Table;
 }
 
 export interface Table {
@@ -28,7 +28,7 @@ export interface Post {
 }
 
 export interface MetadataGroupbyYear {
-  [key: string]: Metadata[]
+  [key: string]: Metadata[];
 }
 
 export interface Metadata {
@@ -41,4 +41,3 @@ export interface Metadata {
   coverImage?: string;
   images?: string[];
 }
-
