@@ -12,7 +12,7 @@ const WorksIndex = (props: PageIndexProps) => (
 
 const metadataToListItem = (metadata: Metadata) => (
   <div key={metadata.slug}>
-    <Link href={{ pathname: `/works/${metadata.slug}` }}>
+    <Link href={{ pathname: `/works/${metadata.slug}` }} passHref>
       <i>{metadata.title}</i>
     </Link>
   </div>

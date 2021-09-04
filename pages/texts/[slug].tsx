@@ -15,7 +15,7 @@ const TextPost = (post: Post) => (
       </div>
       <div className={styles['text-content']}>
         <h1>{post.metadata.title}</h1>
-        <ReactMarkdown children={post.markdownBody} />
+        <ReactMarkdown>{post.markdownBody}</ReactMarkdown>
       </div>
     </div>
   </Layout>

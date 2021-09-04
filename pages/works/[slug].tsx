@@ -3,6 +3,7 @@ import Layout from "components/Layout";
 import { getPostBySlug, getPostSlugs } from "lib/api";
 import { Post } from "lib/models";
 import { Params } from "next/dist/next-server/server/router";
+import Image from "next/image";
 import React from "react"
 import ReactMarkdown from 'react-markdown';
 import styles from 'styles/Home.module.css'
@@ -12,13 +13,15 @@ const WorkPost = (post: Post) => {
     <Layout title={post.metadata.title}>
       <div className={styles['work-post']}>
         <h1>{post.metadata.title}</h1>
-        <ReactMarkdown children={post.markdownBody} />
+        <ReactMarkdown>{post.markdownBody}</ReactMarkdown>
         <ImageList variant='masonry' cols={3} gap={8}>
         {(post.metadata.images || []).map((image) => (
           <ImageListItem key={image}>
-            <img
-              srcSet={`/assets/${post.metadata.slug}/${image}`}
-              loading="lazy"
+            <Image
+              src={`/assets/${post.metadata.slug}/${image}`}
+              height={500}
+              width={500}
+              alt={post.metadata.slug}
             />
           </ImageListItem>
         ))}
