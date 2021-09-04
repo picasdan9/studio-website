@@ -15,10 +15,6 @@ const metadataToListItem = (metadata: Metadata) => (
     <Link href={{ pathname: `/works/${metadata.slug}` }}>
       <i>{metadata.title}</i>
     </Link>
-    , {metadata.type}
-    {metadata.externalSite && (
-      <>, <a href={metadata.externalSite.url}>{metadata.externalSite.name}</a></>
-    )}
   </div>
 )
 

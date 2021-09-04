@@ -36,7 +36,7 @@ export interface Metadata {
   title: string;
   year: string;
   type?: string;
-  externalSiteName: string;
+  externalSiteName?: string;
   url: string;
   coverImage?: string;
   images?: string[];

@@ -47,10 +47,12 @@ function retrievePostBySlug(table: string, slug: string): Post {
       slug: slug,
       title: data.title,
       year: data.year,
-      externalSiteName: data.externalSiteName,
       url: data.url
     }
   }
+
+  if (data.externalSiteName)
+    post.metadata.externalSiteName = data.externalSiteName;
 
   if (table === 'text') {
     if (data.type) 
