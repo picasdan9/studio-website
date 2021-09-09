@@ -17,7 +17,6 @@ const TextsIndex = (props: PageIndexProps) => {
 
   return (
     <Layout title='texts'>
-      {/* <Container className={styles["text-index-page-container"]}> */}
       <div className={styles['post-groups-container']}>
         {Object.entries(metadataGroupbyYear)
           .sort(
@@ -26,22 +25,17 @@ const TextsIndex = (props: PageIndexProps) => {
           )
           .map((group: [string, Metadata[]]) => metadataGroupToBlock(...group))}
       </div>
-      {/* </Container> */}
     </Layout>
   );
 };
 
 const metadataGroupToBlock = (year: string, metadataList: Metadata[]) => (
   <div key={year} className={styles['post-group']}>
-    <div>{year}</div>
-    <div>{metadataList.map(metadataToLine)}</div>
+    <div className={styles['post-year']}>{year}</div>
+    <div className={styles['post-metadata']}>
+      {metadataList.map(metadataToLine)}
+    </div>
   </div>
-  // <Row key={year}>
-  //   <Col sm={2} className={styles['block-header']}>
-  //     {year}
-  //   </Col>
-  //   <Col sm={8}>{metadataList.map(metadataToLine)}</Col>
-  // </Row>
 );
 
 const metadataToLine = (metadata: Metadata) => (
