@@ -5,39 +5,23 @@ export interface Page {
   children: React.ReactNode;
 }
 
-export interface NavButtonProps {
-  path: string;
-  label: string;
-}
-
-export interface PostsDb {
-  [key: string]: Table;
-}
-
-export interface Table {
-  [key: string]: Post;
-}
-
-export interface PageIndexProps {
-  postMetadata: Metadata[];
-}
-
 export interface Post {
   markdownBody: string;
   metadata: Metadata;
 }
 
-export interface MetadataGroupbyYear {
-  [key: string]: Metadata[];
-}
+export type Data = {
+  texts: { [key: string]: Post };
+  works: { [key: string]: Post };
+};
 
 export interface Metadata {
   slug: string;
   title: string;
   year: string;
-  type?: string;
-  externalSiteName?: string;
+  type: string;
   url: string;
+  externalSiteName?: string;
   coverImage?: string;
-  images?: string[];
+  imageUrlList?: string[];
 }

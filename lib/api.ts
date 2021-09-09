@@ -2,42 +2,49 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import { join } from 'path';
 
-import { Post, PostsDb } from './models';
+import { Data, Post } from './models';
 
-const posts: PostsDb = {
-  text: {},
-  work: {},
+const posts: Data = {
+  texts: {},
+  works: {},
 };
 
 const workingDirectory = process.cwd();
 const directories: { [key: string]: string } = {
-  text: join(workingDirectory, '_texts'),
-  work: join(workingDirectory, '_works'),
+  texts: join(workingDirectory, '_texts'),
+  works: join(workingDirectory, '_works'),
 };
 
-export function getPostSlugs(table: string): string[] {
+export function getPostSlugs(cat: string): string[] {
   return fs
-    .readdirSync(directories[table])
-    .map((filename: string) => filename.replace(/\.md$/, ''));
+    .readdirSync(directories[cat])
+    .map((filename) => filename.replace(/\.md$/, ''));
 }
 
-export function getPostBySlug(table: string, slug: string): Post {
-  if (!(slug in posts[table])) {
-    posts[table][slug] = retrievePostBySlug(table, slug);
+export function getPostBySlug(cat: 'texts' | 'works', slug: string): Post {
+  if (!(slug in posts[cat])) {
+    posts[cat][slug] = retrievePostBySlug(cat, slug);
   }
-  return posts[table][slug];
+  return posts[cat][slug];
 }
 
-export function getAllPosts(table: string): Post[] {
-  return getPostSlugs(table).map((slug) => getPostBySlug(table, slug));
+export function getAllPosts(cat: 'texts' | 'works'): Post[] {
+  return getPostSlugs(cat).map((slug) => getPostBySlug(cat, slug));
 }
 
-export function getAllPostMetadata(table: string) {
-  return getAllPosts(table).map((post) => post.metadata);
+export function getAllPostMetadata(cat: 'texts' | 'works') {
+  return getAllPosts(cat).map((post) => post.metadata);
 }
 
-function retrievePostBySlug(table: string, slug: string): Post {
-  const fullPath = join(directories[table], `${slug}.md`);
+export function getImageUrlList(slug: string) {
+  return fs
+    .readdirSync(join('public', 'works', slug))
+    .sort()
+    .map((filename) => join('/works', slug, filename));
+}
+
+function retrievePostBySlug(cat: string, slug: string): Post {
+  const fullPath = join(directories[cat], `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
@@ -46,6 +53,7 @@ function retrievePostBySlug(table: string, slug: string): Post {
     metadata: {
       slug: slug,
       title: data.title,
+      type: data.type,
       year: data.year,
       url: data.url,
     },
@@ -54,10 +62,8 @@ function retrievePostBySlug(table: string, slug: string): Post {
   if (data.externalSiteName)
     post.metadata.externalSiteName = data.externalSiteName;
 
-  if (table === 'text') {
-    if (data.type) post.metadata.type = data.type;
-  } else if (table === 'work') {
-    post.metadata.images = data.images;
+  if (cat === 'works') {
+    post.metadata.imageUrlList = getImageUrlList(slug);
   }
 
   return post;

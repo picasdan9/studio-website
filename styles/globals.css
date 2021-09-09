@@ -16,16 +16,22 @@ h3 {
 
 h1 {
   font-size: larger;
+  font-weight: lighter;
+  -webkit-font-smoothing: antialiased;
   max-width: 400px;
   margin: 0 0 2em 0;
 }
 
 h2 {
   font-size: large;
+  font-weight: lighter;
+  -webkit-font-smoothing: antialiased;
 }
 
 h3 {
   font-size: medium;
+  font-weight: lighter;
+  -webkit-font-smoothing: antialiased;
 }
 
 h2 ~ p {

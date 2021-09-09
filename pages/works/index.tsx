@@ -1,29 +1,35 @@
 import Layout from 'components/Layout';
 import { getAllPostMetadata } from 'lib/api';
-import { Metadata, PageIndexProps } from 'lib/models';
+import { Metadata } from 'lib/models';
+import { GetStaticPropsResult } from 'next';
 import Link from 'next/link';
 import React from 'react';
 
-const WorksIndex = (props: PageIndexProps) => (
-  // <Layout title='works'>{props.postMetadata.map(metadataToListItem)}</Layout>
-  <Layout title='works'>WIP</Layout>
-);
+const WorksIndex: React.FC<{ metadataList: Metadata[] }> = ({
+  metadataList,
+}) => {
+  return <Layout title='works'>{metadataList.map(renderMetadata)}</Layout>;
+};
 
-const metadataToListItem = (metadata: Metadata) => (
+const renderMetadata = (metadata: Metadata) => (
   <div key={metadata.slug}>
     <Link href={{ pathname: `/works/${metadata.slug}` }} passHref>
-      <i>{metadata.title}</i>
+      <a>
+        <i>{metadata.title}</i>
+      </a>
     </Link>
   </div>
 );
 
 export default WorksIndex;
 
-export async function getStaticProps() {
-  const postMetadata = await getAllPostMetadata('work');
+export async function getStaticProps(): Promise<
+  GetStaticPropsResult<{ metadataList: Metadata[] }>
+> {
+  const metadataList = await getAllPostMetadata('works');
   return {
     props: {
-      postMetadata,
+      metadataList,
     },
   };
 }

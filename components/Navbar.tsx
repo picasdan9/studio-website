@@ -8,7 +8,7 @@ function getIsSmallScreen() {
   return hasWindow ? window.innerWidth < 576 : null;
 }
 
-export default function Navbar() {
+const Navbar: React.FC<Object> = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(getIsSmallScreen());
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -40,16 +40,18 @@ export default function Navbar() {
           <a onClick={() => setIsExpanded(true)}>dan n. tran</a>
         )}
       </div>
-      {navButtons.map((button) => (
-        <div key={button.path} className={styles['navbar-button']}>
-          <Link href={button.path}>
-            <a onClick={() => setIsExpanded(false)}>{button.label}</a>
+      {navButtons.map(({ label, path }) => (
+        <div key={path} className={styles['navbar-button']}>
+          <Link href={path}>
+            <a onClick={() => setIsExpanded(false)}>{label}</a>
           </Link>
         </div>
       ))}
     </div>
   );
-}
+};
+
+export default Navbar;
 
 const navButtons = [
   {

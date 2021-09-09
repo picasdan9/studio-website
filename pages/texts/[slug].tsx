@@ -1,5 +1,6 @@
 import Layout from 'components/Layout';
 import { getPostBySlug, getPostSlugs } from 'lib/api';
+// import { Post } from 'lib/api';
 import { Post } from 'lib/models';
 import { Params } from 'next/dist/next-server/server/router';
 import React from 'react';
@@ -23,21 +24,21 @@ const TextPost = (post: Post) => (
 
 export default TextPost;
 
-export async function getStaticProps({ params }: Params) {
-  const post = getPostBySlug('text', params.slug);
-  return {
-    props: { ...post },
-  };
-}
+// export async function getStaticProps({ params }: Params) {
+//   const post = getPostBySlug('text', params.slug);
+//   return {
+//     props: { ...post },
+//   };
+// }
 
-export async function getStaticPaths() {
-  const slugs = getPostSlugs('text');
-  return {
-    paths: slugs.map((slug: string) => ({
-      params: {
-        slug,
-      },
-    })),
-    fallback: false,
-  };
-}
+// export async function getStaticPaths() {
+//   const slugs = getPostSlugs('text');
+//   return {
+//     paths: slugs.map((slug: string) => ({
+//       params: {
+//         slug,
+//       },
+//     })),
+//     fallback: false,
+//   };
+// }
