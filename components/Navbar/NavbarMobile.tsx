@@ -1,15 +1,16 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
-import styles from 'styles/Home.module.css';
+
 import { navButtons } from './constants';
+import NavbarStyles from './NavbarStyles.module.css';
 
 const NavbarMobile: React.FC<Object> = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className={styles['navbar-mobile']}>
+    <div className={NavbarStyles['navbar-mobile']}>
       <div
-        className={styles['navbar-button']}
+        className={NavbarStyles['navbar-button']}
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <Link href=''>
@@ -18,7 +19,7 @@ const NavbarMobile: React.FC<Object> = () => {
       </div>
       {isExpanded ? (
         navButtons.map(({ label, path }) => (
-          <div key={path} className={styles['navbar-button']}>
+          <div key={path} className={NavbarStyles['navbar-button']}>
             <Link href={path}>
               <a>{label}</a>
             </Link>

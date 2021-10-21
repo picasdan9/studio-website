@@ -1,18 +1,19 @@
 import Link from 'next/link';
 import React from 'react';
-import styles from 'styles/Home.module.css';
+
 import { navButtons } from './constants';
+import NavbarStyles from './NavbarStyles.module.css';
 
 const NavbarDesktop: React.FC<Object> = () => {
   return (
-    <div className={styles['navbar-desktop']}>
-      <div className={styles['navbar-button']}>
+    <div className={NavbarStyles['navbar-desktop']}>
+      <div className={NavbarStyles['navbar-button']}>
         <Link href='/'>
           <a>dan n. tran</a>
         </Link>
       </div>
       {navButtons.map(({ label, path }) => (
-        <div key={path} className={styles['navbar-button']}>
+        <div key={path} className={NavbarStyles['navbar-button']}>
           <Link href={path}>
             <a>{label}</a>
           </Link>
