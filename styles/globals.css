@@ -4,7 +4,7 @@ body {
   margin: 0;
   font-family: 'Times New Roman', Times, serif;
   color: #7d7d7d;
-  font-size: large;
+  font-size: medium;
 }
 
 h1,
@@ -38,6 +38,11 @@ h2 ~ p {
   margin-bottom: 2em;
 }
 
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -45,6 +50,13 @@ a {
 
 a:hover {
   color: #b59aff;
+}
+
+ol,
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 * {

@@ -1,44 +1,43 @@
 import Layout from 'components/Layout';
+import TextMarkdown from 'components/TextMarkdown';
 import { getPostBySlug, getPostSlugs } from 'lib/api';
-// import { Post } from 'lib/api';
 import { Post } from 'lib/models';
 import { Params } from 'next/dist/next-server/server/router';
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
-import styles from 'styles/Home.module.css';
+import textsStyles from './textsStyles.module.css';
 
-const TextPost = (post: Post) => (
-  <Layout title={post.metadata.title}>
-    <div className={styles['text-post']}>
-      <div className={styles['text-metadata']}>
-        <div>{post.metadata.year}</div>
-        <div>{post.metadata.type}</div>
+const TextPostPage: React.FC<Post> = ({ metadata, markdownBody }) => (
+  <Layout title={metadata.title}>
+    <div className={textsStyles['text-post']}>
+      <div className={textsStyles['text-metadata']}>
+        <div>{metadata.year}</div>
+        <div>{metadata.type}</div>
       </div>
-      <div className={styles['text-content']}>
-        <h1>{post.metadata.title}</h1>
-        <ReactMarkdown>{post.markdownBody}</ReactMarkdown>
+      <div className={textsStyles['text-content']}>
+        <h1>{metadata.title}</h1>
+        <TextMarkdown slug={metadata.slug} markdown={markdownBody} />
       </div>
     </div>
   </Layout>
 );
 
-export default TextPost;
+export default TextPostPage;
 
-// export async function getStaticProps({ params }: Params) {
-//   const post = getPostBySlug('text', params.slug);
-//   return {
-//     props: { ...post },
-//   };
-// }
+export async function getStaticProps({ params }: Params) {
+  const post = getPostBySlug('texts', params.slug);
+  return {
+    props: { ...post },
+  };
+}
 
-// export async function getStaticPaths() {
-//   const slugs = getPostSlugs('text');
-//   return {
-//     paths: slugs.map((slug: string) => ({
-//       params: {
-//         slug,
-//       },
-//     })),
-//     fallback: false,
-//   };
-// }
+export async function getStaticPaths() {
+  const slugs = getPostSlugs('texts');
+  return {
+    paths: slugs.map((slug: string) => ({
+      params: {
+        slug,
+      },
+    })),
+    fallback: false,
+  };
+}

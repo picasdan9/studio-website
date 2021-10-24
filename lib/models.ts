@@ -20,8 +20,8 @@ export interface Metadata {
   title: string;
   year: string;
   type: string;
-  url: string;
+  url?: string;
   externalSiteName?: string;
   coverImage?: string;
-  imageUrlList?: string[];
+  imgUrlList?: string[];
 }

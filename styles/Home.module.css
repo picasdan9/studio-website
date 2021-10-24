@@ -8,35 +8,10 @@
   padding-top: 2rem;
 }
 
-.post-groups-container {
-  display: grid;
-  gap: 1rem;
-}
-
 .block-header {
   font-family: Arial, Helvetica, sans-serif;
   font-size: larger;
   -webkit-font-smoothing: antialiased;
-}
-
-.text-index-page-metadata-sans {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: medium;
-}
-
-.text-post {
-  display: flex;
-  margin-top: 1em;
-  flex-wrap: wrap;
-}
-
-.text-content {
-  max-width: 680px;
-  margin: 0 0 0 auto;
-}
-
-.text-metadata {
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Extra small devices (portrait phones, less than 576px) */
@@ -48,18 +23,6 @@
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-  .post-group {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-  }
-
-  .post-year {
-    grid-column: span 1;
-  }
-
-  .post-metadata {
-    grid-column: span 9;
-  }
 }
 
 /* Medium devices (tablets, 768px and up) */

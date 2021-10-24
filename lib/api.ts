@@ -55,15 +55,16 @@ function retrievePostBySlug(cat: string, slug: string): Post {
       title: data.title,
       type: data.type,
       year: data.year,
-      url: data.url,
     },
   };
+
+  if (data.url) post.metadata.url = data.url;
 
   if (data.externalSiteName)
     post.metadata.externalSiteName = data.externalSiteName;
 
   if (cat === 'works') {
-    post.metadata.imageUrlList = getImageUrlList(slug);
+    post.metadata.imgUrlList = getImageUrlList(slug);
   }
 
   return post;
