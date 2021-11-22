@@ -15,32 +15,34 @@ h3 {
 }
 
 h1 {
-  font-size: larger;
+  font-size: x-large;
   font-weight: lighter;
   -webkit-font-smoothing: antialiased;
-  max-width: 400px;
+  max-width: 500px;
   margin: 0 0 2em 0;
 }
 
 h2 {
-  font-size: large;
+  font-size: larger;
   font-weight: lighter;
   -webkit-font-smoothing: antialiased;
 }
 
 h3 {
-  font-size: medium;
+  font-size: large;
   font-weight: lighter;
   -webkit-font-smoothing: antialiased;
 }
 
 h2 ~ p {
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
 }
 
 p {
   text-align: justify;
   text-justify: inter-word;
+  line-height: 130%;
+  font-size: large;
 }
 
 a {
