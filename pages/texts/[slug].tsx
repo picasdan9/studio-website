@@ -4,6 +4,7 @@ import { getPostBySlug, getPostSlugs } from 'lib/api';
 import { Post } from 'lib/models';
 import { Params } from 'next/dist/next-server/server/router';
 import React from 'react';
+
 import textsStyles from './textsStyles.module.css';
 
 const TextPostPage: React.FC<Post> = ({ metadata, markdownBody }) => (
@@ -12,6 +13,7 @@ const TextPostPage: React.FC<Post> = ({ metadata, markdownBody }) => (
       <div className={textsStyles['text-metadata']}>
         <div>{metadata.year}</div>
         <div>{metadata.type}</div>
+        <div className={textsStyles['text-note']}>{metadata.note}</div>
       </div>
       <div className={textsStyles['text-content']}>
         <h1>{metadata.title}</h1>

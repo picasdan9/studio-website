@@ -59,7 +59,7 @@ function retrievePostBySlug(cat: string, slug: string): Post {
   };
 
   if (data.url) post.metadata.url = data.url;
-
+  if (data.note) post.metadata.note = data.note;
   if (data.externalSiteName)
     post.metadata.externalSiteName = data.externalSiteName;
 

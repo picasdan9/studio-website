@@ -2,16 +2,17 @@
 title: 'HCIBS: The Quest for Individual Subjectivities in a Surveillance Society'
 type: essay
 year: 2019
+note: This essay was written for the module AR2224 Ideas and Approaches in Design.
 ---
 
-# Context
+## Context
 
 Hwa Chong Institution Boarding School (HCIBS), designed by Kenzo Tange, is an on-campus residential complex opened in 2002, aimed to address the rising number of foreign students due to Singapore’s initiative in giving pre-tertiary and undergraduate scholarships to students from China and Southeast Asia since the 1990s (Yang, 2016). The work is perhaps the last token of Singapore’s adoption of the Japanese modernist paradigm through Tange’s leadership in efforts to rejuvenate the post-war urban landscape since the 1970s (Xue et Xiao, 2014).
 
 The Japanese modernist qualities that imbue HCIBS render it a place of egalitarian living capable of providing spaces for individual subjectivities (Kurokawa, 1977), thus harmonizing rather than unifying a heterogenous body of boarders under the veneer of a common home. But far from a purely democratic ideal, Japanese modernism could potentially imply centralization of power due to the necessary aspect of social engineering in designing a ‘megastructure’ that houses a variety of social and personal functions (Tamari, 2014). In the case of HCIBS, living there entails a constant immersion in the physical manifestation of the institution. Its modernist architectural qualities of openness and visibility usher in the capacity for surveillance as a mechanism of reinforcing power relations (Jones, 1999).
 At their extremes in an essentialist sense, these two facets of democracy and social control negate each other. In reality, they represent two opposing forces that shape HCIBS. This paper thus aims to unpack these dynamics and attempts to characterize the ontological and epistemological position of boarders as both the known object being observed and the knowing subject capable of observing as necessitated by the modernist architecture of HCIBS.
 
-# Modernism in the 21st century
+## Modernism in the 21st century
 
 The boarding school lies uphill at the southwest end of the campus, effectively removed from the happenings of the main Bukit Timah Road at the Northeast, and the bustling activities permeating the rest of the campus (Fig. 1). Two routes lead one to the entrance of the complex: one external route from Namly Avenue, accessible from Bukit Timah Road, and an internal route from the High School section.
 
@@ -37,7 +38,7 @@ The whole complex accommodates seven residential blocks, four on the long row fa
 
 ![Figure 7: View of residential clusters from ground level (Taken by author)](Fig7.jpg)
 
-# A place of ambivalence
+## A place of ambivalence
 
 Taking a phenomenological approach, postmodern characteristics of HCIBS emerge, particularly with regards to the rejection of singularity and unity. Two binary dichotomies are disrupted: home and work, and the act of observing and the state of being observed.
 
@@ -71,7 +72,7 @@ It should be noted that the visibility as described above is two-way: instances 
 
 ![Figure 12. View from a residential room (Taken by the author)](Fig12.png)
 
-# Double consciousness
+## Double consciousness
 
 The interplay of architectural forms and behavioural practices within HCIBS in shaping boarders’ lived experience and, by extension, HCIBS itself invites a materialist analysis (DeLanda, 2010). Specifically, recognising that an essentialist account would fail to accommodate the contradictory ontological positions of a boarder as both a subject capable of observing and an object under surveillance, and the opposing capacities for individual subjectivity and collective egalitarianism, I wish to invoke DeLanda’s assemblage theory as my analytical lens to see these antagonistic tendencies as interconnected components within a social phenomenon.
 
@@ -93,7 +94,7 @@ While visibility facilitates the process of territorialisation via surveillance,
 
 Despite regular room checks by boarding school staff and restrictions on what can be done to the rooms, the one-way visibility enables boarders to anticipate the coming of boarding school staff and thus be able to avoid having their idiosyncratic expression be monitored and regulated. Without the penetrating vision, boarding school staff have to physically go to the rooms for inspection. Sensory clues such as footsteps, or a glance out of the room, suffice to signal the impending gaze. This piece of knowledge allows boarders to have the time to present themselves in a manner following the code of conduct. In a way, boarders subvert the ideological apparatus of the spectacle: that their being is reduced to appearances (Debord, 1977) seen by surveillance (Welsh, 2010) enables them to conceal deviant undercurrents beneath a disciplined front.
 
-# Conclusion
+## Conclusion
 
 The double consciousness of HCIBS boarders is a necessary consequence of modernism’s conflicting qualities of democracy and social control, and of egalitarianism and individual idiosyncrasies. The visibility articulated by the open plan and glass renders the boarding school a panopticon capable of constant surveillance, positioning boarders as passive objects to be known. Self-monitoring and self-regulation of behaviours, consequently, assimilates boarders into a homogenous population. At the same time, the residential rooms, shielded from the gaze of surveillance, are spaces of privacy and individual subjectivity that place boarders in the active standpoint of an observer, and by extension, a knower. Some extent of freedom is exercised, where idiosyncrasies are discreetly and safely expressed, as long as they remain strictly outside the realm of surveillance.
 

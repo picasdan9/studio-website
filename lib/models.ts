@@ -22,6 +22,7 @@ export interface Metadata {
   type: string;
   url?: string;
   externalSiteName?: string;
+  note?: string;
   coverImage?: string;
   imgUrlList?: string[];
 }

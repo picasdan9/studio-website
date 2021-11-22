@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+
 import TextMarkdownStyles from './TextMarkdownStyles.module.css';
 
 const TextPostMarkdown: React.FC<{ slug: string; markdown: string }> = ({
@@ -7,21 +8,23 @@ const TextPostMarkdown: React.FC<{ slug: string; markdown: string }> = ({
   markdown,
 }) => (
   <ReactMarkdown
-    children={markdown}
     components={{
-      img: ({ src, alt }) => (
-        <figure>
-          <img
-            src={`/texts/${slug}/${src}` || ''}
-            className={TextMarkdownStyles['img']}
-          />
-          <figcaption>{alt}</figcaption>
-        </figure>
-      ),
-      h1: 'h2',
-      h2: 'h3',
+      img({ src, alt }) {
+        return (
+          <figure className={TextMarkdownStyles['figure']}>
+            <img
+              src={`/texts/${slug}/${src}` || ''}
+              className={TextMarkdownStyles['img']}
+              alt={`An image for ${slug}$`}
+            />
+            <figcaption>{alt}</figcaption>
+          </figure>
+        );
+      },
     }}
-  />
+  >
+    {markdown}
+  </ReactMarkdown>
 );
 
 export default TextPostMarkdown;
