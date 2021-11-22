@@ -5,7 +5,7 @@ import { GetStaticPropsResult } from 'next';
 import Link from 'next/link';
 import React from 'react';
 
-const WorksIndex: React.FC<{ metadataList: Metadata[] }> = ({
+const WorksIndexPage: React.FC<{ metadataList: Metadata[] }> = ({
   metadataList,
 }) => {
   return <Layout title='works'>{metadataList.map(renderMetadata)}</Layout>;
@@ -21,7 +21,7 @@ const renderMetadata = (metadata: Metadata) => (
   </div>
 );
 
-export default WorksIndex;
+export default WorksIndexPage;
 
 export async function getStaticProps(): Promise<
   GetStaticPropsResult<{ metadataList: Metadata[] }>
