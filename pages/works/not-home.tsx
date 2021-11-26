@@ -1,5 +1,5 @@
 import ImageSlider from 'components/ImageSlider/ImageSlider';
-import Layout from 'components/Layout';
+import Layout from 'components/Layout/Layout';
 import { getPostBySlug } from 'lib/api';
 import { Post } from 'lib/models';
 import { GetStaticPropsResult } from 'next';
@@ -10,8 +10,8 @@ const NotHomePage: React.FC<Post> = ({ markdownBody, metadata }) => {
   return (
     <Layout title={metadata.title}>
       <h1>{metadata.title}</h1>
-      <ReactMarkdown>{markdownBody}</ReactMarkdown>
       <ImageSlider imgUrlList={metadata.imgUrlList || []} />
+      <ReactMarkdown>{markdownBody}</ReactMarkdown>
     </Layout>
   );
 };

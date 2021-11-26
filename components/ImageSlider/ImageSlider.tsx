@@ -1,45 +1,51 @@
-import Image from 'next/image';
 import { useState } from 'react';
 
-import ImageSliderStyles from './ImageSliderStyles.module.css';
+import styles from './ImageSliderStyles.module.css';
 
 const ImageSlider: React.FC<{ imgUrlList: string[] }> = ({ imgUrlList }) => {
-  const [curIdx, setCurIdx] = useState(0);
-  console.log(imgUrlList);
+  const [curIdx, setCurIdx] = useState<number>(0);
+
+  function computeImgClassName(idx: number): string {
+    return styles['img'] + (idx === curIdx ? ' ' + styles['active'] : '');
+  }
+
+  function computeBtnControllerClassName(idx: number): string {
+    return (
+      styles['button-controller'] +
+      (idx === curIdx ? ' ' + styles['active'] : '')
+    );
+  }
+
   return (
-    <div className={ImageSliderStyles['image-slider-container']}>
-      <div>
-        <button onClick={() => curIdx > 0 && setCurIdx(curIdx - 1)} />
-        <div className={ImageSliderStyles['image-slide-container']}>
+    <div className={styles['image-slider-container']}>
+      <div className={styles['image-slider-display']}>
+        <button
+          disabled={curIdx <= 0}
+          onClick={() => setCurIdx(curIdx - 1)}
+          className={styles['button-decrement']}
+        >
+          <div />
+        </button>
+        <div className={styles['slide']}>
           {imgUrlList.map((imgUrl, idx) => (
-            <div
-              key={idx}
-              className={
-                ImageSliderStyles['image-slide'] +
-                (idx === curIdx ? ' active' : '')
-              }
-            >
-              <Image src={imgUrl} layout='fill' objectFit='contain' />
-            </div>
+            <img key={idx} src={imgUrl} className={computeImgClassName(idx)} />
           ))}
         </div>
         <button
-          onClick={() =>
-            curIdx < imgUrlList.length - 1 && setCurIdx(curIdx + 1)
-          }
-        />
+          disabled={curIdx >= imgUrlList.length - 1}
+          onClick={() => setCurIdx(curIdx + 1)}
+          className={styles['button-increment']}
+        >
+          <div />
+        </button>
       </div>
-      <div className={ImageSliderStyles['image-slider-dot-list']}>
+      <div className={styles['image-slider-controller']}>
         {imgUrlList.map((_, idx) => (
-          <li
+          <button
             key={idx}
-            className={
-              ImageSliderStyles['image-slider-dot'] +
-              (idx === curIdx ? ' active' : '')
-            }
-          >
-            <button onClick={() => setCurIdx(idx)} />
-          </li>
+            className={computeBtnControllerClassName(idx)}
+            onClick={() => setCurIdx(idx)}
+          />
         ))}
       </div>
     </div>

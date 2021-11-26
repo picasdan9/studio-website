@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import React from 'react';
-import styles from 'styles/Home.module.css';
+import styles from './LayoutStyles.module.css';
 
-import Navbar from './Navbar';
+import Navbar from 'components/Navbar';
 
 const Layout: React.FC<{ title: string; children: React.ReactNode }> = ({
   title,
