@@ -1,11 +1,11 @@
 import AboutListItem from 'components/AboutListItem';
 import Layout from 'components/Layout';
+
 import styles from './aboutStyles.module.css';
 
 const EXPERIENCE_ITEMS = [
   ['2020 - ', 'Contributing Writer, Vietnam'],
   ['2020 - ', 'Contributing Writer, SINdie, Singapore'],
-  ['2021', 'Translator and Assistant Editor, MAP (Heritage Space), Vietnam'],
   ['2021', 'Festival Guide Writer, Singapore'],
 ];
 
@@ -20,6 +20,12 @@ const PRIZE_ITEMS = [
   ['2021', 'Best Book Review Prize, Margins, NUS'],
 ];
 
+const PROGRAMME_PARTICIPATION = [
+  ['2021', 'Film Criticism - Long Written Forms, Asian Cinema Education'],
+  ['2020', 'Shooting Home Youth Awards, Objectifs, Singapore'],
+  ['2019', 'Youth Jury & Critics Programme, SGIFF, Singapore'],
+];
+
 const SECTIONS = [
   {
     title: 'Experience',
@@ -32,6 +38,10 @@ const SECTIONS = [
   {
     title: 'Prizes and Scholarships',
     items: PRIZE_ITEMS,
+  },
+  {
+    title: 'Program Participation',
+    items: PROGRAMME_PARTICIPATION,
   },
 ];
 

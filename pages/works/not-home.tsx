@@ -1,4 +1,4 @@
-import ImageSlider from 'components/ImageSlider/ImageSlider';
+import ImageSlider from 'components/ImageSlider';
 import Layout from 'components/Layout/Layout';
 import { getPostBySlug } from 'lib/api';
 import { Post } from 'lib/models';
@@ -12,6 +12,7 @@ const NotHomePage: React.FC<Post> = ({ markdownBody, metadata }) => {
       <h1>{metadata.title}</h1>
       <ImageSlider imgUrlList={metadata.imgUrlList || []} />
       <ReactMarkdown>{markdownBody}</ReactMarkdown>
+      <div>{metadata.note}</div>
     </Layout>
   );
 };

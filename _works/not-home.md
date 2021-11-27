@@ -2,8 +2,8 @@
 title: Not Home
 year: 2021
 type: photography
-coverImage:
-url:
+coverImage: /works/not-home/cover.jpg
+note: The project was made for The Shooting Home Youth Awards by Objectifs.
 ---
 
 It is the 15th in the Lunar Calendar. Gazing upon the night sky, I never fail to be astonished by the familiar sight of the moon. It's uncanny even, to feel myself in a momentary escape from the territories of Singapore, to be transported to where my mind longs for.

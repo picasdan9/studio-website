@@ -33,14 +33,20 @@ export function getAllPosts(cat: 'texts' | 'works'): Post[] {
 }
 
 export function getAllPostMetadata(cat: 'texts' | 'works') {
-  return getAllPosts(cat).map((post) => post.metadata);
+  return getAllPosts(cat)
+    .map((post) => post.metadata)
+    .filter((metadata) => cat === 'texts' || 'coverImage' in metadata);
 }
 
 export function getImageUrlList(slug: string) {
-  return fs
-    .readdirSync(join('public', 'works', slug))
-    .sort()
-    .map((filename) => join('/works', slug, filename));
+  try {
+    return fs
+      .readdirSync(join('public', 'works', slug, 'contents'))
+      .sort()
+      .map((filename) => join('/works', slug, 'contents', filename));
+  } catch {
+    return [];
+  }
 }
 
 function retrievePostBySlug(cat: string, slug: string): Post {
@@ -58,6 +64,7 @@ function retrievePostBySlug(cat: string, slug: string): Post {
     },
   };
 
+  if (data.coverImage) post.metadata.coverImage = data.coverImage;
   if (data.url) post.metadata.url = data.url;
   if (data.note) post.metadata.note = data.note;
   if (data.externalSiteName)

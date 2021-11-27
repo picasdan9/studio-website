@@ -1,25 +1,21 @@
 import Layout from 'components/Layout';
+import WorkTile from 'components/WorkTile';
 import { getAllPostMetadata } from 'lib/api';
 import { Metadata } from 'lib/models';
 import { GetStaticPropsResult } from 'next';
-import Link from 'next/link';
 import React from 'react';
 
 const WorksIndexPage: React.FC<{ metadataList: Metadata[] }> = ({
   metadataList,
 }) => {
-  return <Layout title='works'>{metadataList.map(renderMetadata)}</Layout>;
+  return (
+    <Layout title='works'>
+      {metadataList.map((metadata: Metadata) => (
+        <WorkTile key={metadata.slug} metadata={metadata} />
+      ))}
+    </Layout>
+  );
 };
-
-const renderMetadata = (metadata: Metadata) => (
-  <div key={metadata.slug}>
-    <Link href={{ pathname: `/works/${metadata.slug}` }} passHref>
-      <a>
-        <i>{metadata.title}</i>
-      </a>
-    </Link>
-  </div>
-);
 
 export default WorksIndexPage;
 

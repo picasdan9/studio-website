@@ -1,4 +1,4 @@
-import Layout from 'components/Layout';
+import Layout from 'components/Layout/Layout';
 import TextMarkdown from 'components/TextMarkdown';
 import { getPostBySlug, getPostSlugs } from 'lib/api';
 import { Post } from 'lib/models';

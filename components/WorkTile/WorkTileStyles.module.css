@@ -1,0 +1,18 @@
+.work-tile {
+  width: 10rem;
+  filter: grayscale(100%);
+}
+
+.work-tile:hover {
+  filter: none;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.work-title {
+  text-align: right;
+}
