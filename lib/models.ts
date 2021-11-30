@@ -10,15 +10,10 @@ export interface Post {
   metadata: Metadata;
 }
 
-export type Data = {
-  texts: { [key: string]: Post };
-  works: { [key: string]: Post };
-};
-
 export interface Metadata {
   slug: string;
   title: string;
-  year: number;
+  year: string;
   type: string;
   url?: string;
   externalSiteName?: string;

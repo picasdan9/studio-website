@@ -1,5 +1,5 @@
 ---
-title: "This is Acting: Performance in Life and Performance in Art"
+title: 'This is Acting: Performance in Life and Performance in Art'
 type: article
 year: 2019
 externalSiteName: SGIFF

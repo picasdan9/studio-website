@@ -2,7 +2,7 @@ import Layout from 'components/Layout/Layout';
 import TextMarkdown from 'components/TextMarkdown';
 import { getPostBySlug, getPostSlugs } from 'lib/api';
 import { Post } from 'lib/models';
-import { Params } from 'next/dist/next-server/server/router';
+import { Params } from 'next/dist/server/router';
 import React from 'react';
 
 import textsStyles from './textsStyles.module.css';

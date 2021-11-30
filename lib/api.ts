@@ -2,12 +2,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import { join } from 'path';
 
-import { Data, Post } from './models';
-
-const posts: Data = {
-  texts: {},
-  works: {},
-};
+import { Metadata, Post } from './models';
 
 const workingDirectory = process.cwd();
 const directories: { [key: string]: string } = {
@@ -21,13 +16,6 @@ export function getPostSlugs(cat: string): string[] {
     .map((filename) => filename.replace(/\.md$/, ''));
 }
 
-export function getPostBySlug(cat: 'texts' | 'works', slug: string): Post {
-  if (!(slug in posts[cat])) {
-    posts[cat][slug] = retrievePostBySlug(cat, slug);
-  }
-  return posts[cat][slug];
-}
-
 export function getAllPosts(cat: 'texts' | 'works'): Post[] {
   return getPostSlugs(cat).map((slug) => getPostBySlug(cat, slug));
 }
@@ -36,14 +24,7 @@ export function getAllPostMetadata(cat: 'texts' | 'works') {
   return getAllPosts(cat)
     .map((post) => post.metadata)
     .filter((metadata) => cat === 'texts' || 'coverImage' in metadata)
-    .sort((metadata1, metadata2) => metadata2.year - metadata1.year);
-}
-
-function isImageFile(filename: string): boolean {
-  const split = filename.split('.');
-  if (split.length < 2) return false;
-  const fileExtension = split[split.length - 1].toLowerCase();
-  return ['jpg', 'jpeg', 'png'].indexOf(fileExtension) > -1;
+    .sort(metadataComparator);
 }
 
 export function getImageUrlList(slug: string) {
@@ -58,7 +39,7 @@ export function getImageUrlList(slug: string) {
   }
 }
 
-function retrievePostBySlug(cat: string, slug: string): Post {
+export function getPostBySlug(cat: 'texts' | 'works', slug: string): Post {
   const fullPath = join(directories[cat], `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
@@ -69,7 +50,7 @@ function retrievePostBySlug(cat: string, slug: string): Post {
       slug: slug,
       title: data.title,
       type: data.type,
-      year: data.year,
+      year: data.year.toString(),
     },
   };
 
@@ -84,4 +65,20 @@ function retrievePostBySlug(cat: string, slug: string): Post {
   }
 
   return post;
+}
+
+function getLatestYear(year: string): number {
+  const split = year.split('-');
+  return parseInt(split[split.length - 1]);
+}
+
+function metadataComparator(a: Metadata, b: Metadata): number {
+  return getLatestYear(b.year) - getLatestYear(a.year);
+}
+
+function isImageFile(filename: string): boolean {
+  const split = filename.split('.');
+  if (split.length < 2) return false;
+  const fileExtension = split[split.length - 1].toLowerCase();
+  return ['jpg', 'jpeg', 'png'].indexOf(fileExtension) > -1;
 }
