@@ -1,9 +1,9 @@
 ---
 title: M-A-P-P-E-R
-year: 2021
-type: human-computer interaction
-coverImage:
-note: The project was made for the module UTC2113 Gaming Life
+year: 2020
+type: interactive art
+coverImage: /works/m-a-p-p-e-r/cover.jpg
+note: The project was made for the module UTC2113 Gaming Life.
 ---
 
 M-A-P-P-E-R is created with the intention to playfully examine and critique modalities of power and resistance in the Foucauldian and Deleuzian traditions.

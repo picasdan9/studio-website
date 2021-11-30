@@ -1,6 +1,7 @@
 .work-tile {
   width: 10rem;
-  filter: grayscale(100%);
+  background-color: white;
+  filter: grayscale(100%) opacity(0.5);
 }
 
 .work-tile:hover {

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-
 import TextMarkdownStyles from './TextMarkdownStyles.module.css';
 
 const TextPostMarkdown: React.FC<{ slug: string; markdown: string }> = ({

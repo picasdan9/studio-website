@@ -35,13 +35,22 @@ export function getAllPosts(cat: 'texts' | 'works'): Post[] {
 export function getAllPostMetadata(cat: 'texts' | 'works') {
   return getAllPosts(cat)
     .map((post) => post.metadata)
-    .filter((metadata) => cat === 'texts' || 'coverImage' in metadata);
+    .filter((metadata) => cat === 'texts' || 'coverImage' in metadata)
+    .sort((metadata1, metadata2) => metadata2.year - metadata1.year);
+}
+
+function isImageFile(filename: string): boolean {
+  const split = filename.split('.');
+  if (split.length < 2) return false;
+  const fileExtension = split[split.length - 1].toLowerCase();
+  return ['jpg', 'jpeg', 'png'].indexOf(fileExtension) > -1;
 }
 
 export function getImageUrlList(slug: string) {
   try {
     return fs
       .readdirSync(join('public', 'works', slug, 'contents'))
+      .filter(isImageFile)
       .sort()
       .map((filename) => join('/works', slug, 'contents', filename));
   } catch {
