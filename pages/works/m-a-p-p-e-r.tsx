@@ -10,8 +10,6 @@ const MapperPage: React.FC<Post> = ({ markdownBody, metadata }) => {
   return (
     <Layout title={metadata.title}>
       <h1>{metadata.title}</h1>
-      <ImageSlider imgUrlList={metadata.imgUrlList || []} />
-      <ReactMarkdown>{markdownBody}</ReactMarkdown>
       <p>
         <a
           href='https://picasdan9.github.io/M-A-P-P-E-R/M-A-P-P-E-R.txt'
@@ -29,6 +27,8 @@ const MapperPage: React.FC<Post> = ({ markdownBody, metadata }) => {
           Presentation slides
         </a>
       </p>
+      <ImageSlider imgUrlList={metadata.imgUrlList || []} />
+      <ReactMarkdown>{markdownBody}</ReactMarkdown>
       <div>{metadata.note}</div>
     </Layout>
   );
