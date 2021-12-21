@@ -1,6 +1,7 @@
 .text-metadata-groups-container {
   display: grid;
   gap: 1rem;
+  max-width: 640px;
 }
 
 /* Small devices (landscape phones, 576px and up) */

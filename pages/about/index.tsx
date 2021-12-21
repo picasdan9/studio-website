@@ -4,9 +4,9 @@ import Layout from 'components/Layout';
 import styles from './aboutStyles.module.css';
 
 const EXPERIENCE_ITEMS = [
-  ['2020 - ', 'Contributing Writer, Vietnam'],
+  ['2020 - ', 'Contributing Writer, Matca, Vietnam'],
   ['2020 - ', 'Contributing Writer, SINdie, Singapore'],
-  ['2021', 'Festival Guide Writer, Singapore'],
+  ['2021', 'Festival Guide Writer, SGIFF, Singapore'],
 ];
 
 const EXHIBITION_ITEMS = [
