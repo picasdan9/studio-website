@@ -13,7 +13,7 @@ export interface Post {
 export interface Metadata {
   slug: string;
   title: string;
-  year: string;
+  year: number;
   type: string;
   url?: string;
   externalSiteName?: string;

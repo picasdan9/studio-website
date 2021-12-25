@@ -67,13 +67,8 @@ export function getPostBySlug(cat: 'texts' | 'works', slug: string): Post {
   return post;
 }
 
-function getLatestYear(year: string): number {
-  const split = year.split('-');
-  return parseInt(split[split.length - 1]);
-}
-
 function metadataComparator(a: Metadata, b: Metadata): number {
-  return getLatestYear(b.year) - getLatestYear(a.year);
+  return b.year - a.year;
 }
 
 function isImageFile(filename: string): boolean {
