@@ -16,14 +16,7 @@ const ImageSliderContainer: React.FC<{
     (idx === curIdx ? ' ' + styles['active'] : '');
 
   return (
-    <div
-      className={styles['image-slider-container']}
-      onClick={() => {
-        console.log('clicked');
-        console.log(isOverlayOn);
-        !isOverlayOn && setIsOverlayOn(true);
-      }}
-    >
+    <div className={styles['image-slider-container']}>
       <div className={styles['image-slider-display']}>
         <button
           disabled={curIdx <= 0}
@@ -32,7 +25,12 @@ const ImageSliderContainer: React.FC<{
         >
           <div />
         </button>
-        <div className={styles['slide']}>
+        <div
+          onClick={() => {
+            !isOverlayOn && setIsOverlayOn(true);
+          }}
+          className={styles['slide']}
+        >
           {imgUrlList.map((imgUrl, idx) => (
             <img key={idx} src={imgUrl} className={computeImgClassName(idx)} />
           ))}
