@@ -50,7 +50,7 @@ export function getPostBySlug(cat: 'texts' | 'works', slug: string): Post {
       slug: slug,
       title: data.title,
       type: data.type,
-      year: data.year.toString(),
+      timestamp: new Date(data.date).getTime(),
     },
   };
 
@@ -68,7 +68,7 @@ export function getPostBySlug(cat: 'texts' | 'works', slug: string): Post {
 }
 
 function metadataComparator(a: Metadata, b: Metadata): number {
-  return b.year - a.year;
+  return b.timestamp - a.timestamp;
 }
 
 function isImageFile(filename: string): boolean {

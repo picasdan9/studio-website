@@ -30,9 +30,9 @@ const reduceMetadataListToGroupbyYear = (
   metadataGroups: { [key: string]: Metadata[] },
   metadata: Metadata
 ): { [key: string]: Metadata[] } => {
-  if (metadata.year in metadataGroups)
-    metadataGroups[metadata.year].push(metadata);
-  else metadataGroups[metadata.year] = [metadata];
+  const year = new Date(metadata.timestamp).getUTCFullYear();
+  if (year in metadataGroups) metadataGroups[year].push(metadata);
+  else metadataGroups[year] = [metadata];
   return metadataGroups;
 };
 

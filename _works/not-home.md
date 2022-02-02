@@ -1,6 +1,6 @@
 ---
 title: Not Home
-year: 2021
+date: 2021
 type: photography
 coverImage: /works/not-home/cover.jpg
 note: The project was made for The Shooting Home Youth Awards by Objectifs.

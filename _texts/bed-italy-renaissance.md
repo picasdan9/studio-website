@@ -1,7 +1,7 @@
 ---
 title: '“Going to bed” in Italy Renaissance: reading the devotional and the nude in the bourgeoise interior'
 type: essay
-year: 2021
+date: 21 Dec 2021
 note: This essay was written for the module AH2101 Introduction to Art History.
 ---
 

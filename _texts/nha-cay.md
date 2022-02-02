@@ -1,7 +1,7 @@
 ---
 title: 'Review: Nhà Cây'
 type: film review
-year: 2022
+date: 02 Feb 2022
 note: This is the Vietnamese translation of my 2020 review of the film, originally written in English.
 ---
 

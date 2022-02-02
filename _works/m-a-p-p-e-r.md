@@ -1,6 +1,6 @@
 ---
 title: M-A-P-P-E-R
-year: 2020
+date: 2020
 type: interactive art
 coverImage: /works/m-a-p-p-e-r/cover.jpg
 note: The project was made for the module UTC2113 Gaming Life.

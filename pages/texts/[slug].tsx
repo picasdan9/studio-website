@@ -11,7 +11,11 @@ const TextPostPage: React.FC<Post> = ({ metadata, markdownBody }) => (
   <Layout title={metadata.title}>
     <div className={textsStyles['text-post']}>
       <div className={textsStyles['text-metadata']}>
-        <div>{metadata.year}</div>
+        <div>
+          {new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium' }).format(
+            new Date(metadata.timestamp)
+          )}
+        </div>
         <div>{metadata.type}</div>
         <div className={textsStyles['text-note']}>{metadata.note}</div>
       </div>

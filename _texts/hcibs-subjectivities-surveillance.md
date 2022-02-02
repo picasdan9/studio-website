@@ -1,7 +1,7 @@
 ---
 title: 'HCIBS: The Quest for Individual Subjectivities in a Surveillance Society'
 type: essay
-year: 2019
+date: 15 Nov 2019
 note: This essay was written for the module AR2224 Ideas and Approaches in Design.
 ---
 
