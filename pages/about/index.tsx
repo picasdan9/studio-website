@@ -20,7 +20,7 @@ const PRIZE_ITEMS = [
   ['2021', 'Best Book Review Prize, Margins, NUS'],
 ];
 
-const PROGRAMME_PARTICIPATION = [
+const PROGRAMME_PARTICIPATION_ITEMS = [
   ['2021', 'Film Criticism - Long Written Forms, Asian Cinema Education'],
   ['2020', 'Shooting Home Youth Awards, Objectifs, Singapore'],
   ['2019', 'Youth Jury & Critics Programme, SGIFF, Singapore'],
@@ -40,8 +40,8 @@ const SECTIONS = [
     items: PRIZE_ITEMS,
   },
   {
-    title: 'Program Participation',
-    items: PROGRAMME_PARTICIPATION,
+    title: 'Programme Participation',
+    items: PROGRAMME_PARTICIPATION_ITEMS,
   },
 ];
 

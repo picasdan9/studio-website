@@ -7,7 +7,7 @@ import { Metadata, Post } from './models';
 const workingDirectory = process.cwd();
 const directories: { [key: string]: string } = {
   texts: join(workingDirectory, '_texts'),
-  works: join(workingDirectory, '_works'),
+  images: join(workingDirectory, '_images'),
 };
 
 export function getPostSlugs(cat: string): string[] {
@@ -16,11 +16,11 @@ export function getPostSlugs(cat: string): string[] {
     .map((filename) => filename.replace(/\.md$/, ''));
 }
 
-export function getAllPosts(cat: 'texts' | 'works'): Post[] {
+export function getAllPosts(cat: 'texts' | 'images'): Post[] {
   return getPostSlugs(cat).map((slug) => getPostBySlug(cat, slug));
 }
 
-export function getAllPostMetadata(cat: 'texts' | 'works') {
+export function getAllPostMetadata(cat: 'texts' | 'images') {
   return getAllPosts(cat)
     .map((post) => post.metadata)
     .filter((metadata) => cat === 'texts' || 'coverImage' in metadata)
@@ -30,16 +30,16 @@ export function getAllPostMetadata(cat: 'texts' | 'works') {
 export function getImageUrlList(slug: string) {
   try {
     return fs
-      .readdirSync(join('public', 'works', slug, 'contents'))
+      .readdirSync(join('public', 'images', slug, 'contents'))
       .filter(isImageFile)
       .sort()
-      .map((filename) => join('/works', slug, 'contents', filename));
+      .map((filename) => join('/images', slug, 'contents', filename));
   } catch {
     return [];
   }
 }
 
-export function getPostBySlug(cat: 'texts' | 'works', slug: string): Post {
+export function getPostBySlug(cat: 'texts' | 'images', slug: string): Post {
   const fullPath = join(directories[cat], `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
@@ -60,7 +60,7 @@ export function getPostBySlug(cat: 'texts' | 'works', slug: string): Post {
   if (data.externalSiteName)
     post.metadata.externalSiteName = data.externalSiteName;
 
-  if (cat === 'works') {
+  if (cat === 'images') {
     post.metadata.imgUrlList = getImageUrlList(slug);
   }
 

@@ -1,31 +1,32 @@
+import ImageTile from 'components/ImageTile';
 import Layout from 'components/Layout';
-import WorkTile from 'components/WorkTile';
 import { getAllPostMetadata } from 'lib/api';
 import { Metadata } from 'lib/models';
 import { GetStaticPropsResult } from 'next';
 import React from 'react';
-import styles from './worksStyles.module.css';
 
-const WorksIndexPage: React.FC<{ metadataList: Metadata[] }> = ({
+import styles from './imagesStyles.module.css';
+
+const ImagesIndexPage: React.FC<{ metadataList: Metadata[] }> = ({
   metadataList,
 }) => {
   return (
-    <Layout title='works'>
-      <div className={styles['work-tile-container']}>
+    <Layout title='images'>
+      <div className={styles['image-tile-container']}>
         {metadataList.map((metadata: Metadata) => (
-          <WorkTile key={metadata.slug} metadata={metadata} />
+          <ImageTile key={metadata.slug} metadata={metadata} />
         ))}
       </div>
     </Layout>
   );
 };
 
-export default WorksIndexPage;
+export default ImagesIndexPage;
 
 export async function getStaticProps(): Promise<
   GetStaticPropsResult<{ metadataList: Metadata[] }>
 > {
-  const metadataList = await getAllPostMetadata('works');
+  const metadataList = await getAllPostMetadata('images');
   return {
     props: {
       metadataList,

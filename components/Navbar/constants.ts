@@ -4,8 +4,8 @@ export const navButtons = [
     path: '/texts',
   },
   {
-    label: 'works',
-    path: '/works',
+    label: 'images',
+    path: '/images',
   },
   {
     label: 'about',

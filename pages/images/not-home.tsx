@@ -20,7 +20,7 @@ const NotHomePage: React.FC<Post> = ({ markdownBody, metadata }) => {
 export default NotHomePage;
 
 export async function getStaticProps(): Promise<GetStaticPropsResult<Post>> {
-  const post = getPostBySlug('works', 'not-home');
+  const post = getPostBySlug('images', 'not-home');
   return {
     props: { ...post },
   };
