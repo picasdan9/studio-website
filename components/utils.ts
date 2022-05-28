@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
 
-export const getIsMobile = () => {
-  if (typeof window === 'undefined') return null;
+export function GetIsMobile() {
+  const isClient = typeof window !== 'undefined';
 
-  const [viewportWidth, setViewportWidth] = useState<number>(window.innerWidth);
+  const [viewportWidth, setViewportWidth] = useState<number | null>(
+    isClient ? window.innerWidth : null
+  );
 
   function syncViewportWidth() {
     setViewportWidth(window.innerWidth);
   }
 
   useEffect(() => {
-    window.addEventListener('resize', syncViewportWidth);
-    return () => window.removeEventListener('resize', syncViewportWidth);
-  }, [setViewportWidth]);
+    if (isClient) {
+      window.addEventListener('resize', syncViewportWidth);
+      return () => window.removeEventListener('resize', syncViewportWidth);
+    }
+  }, [isClient]);
 
-  return viewportWidth <= 768;
-};
+  return viewportWidth === null ? null : viewportWidth <= 768;
+}
