@@ -32,7 +32,7 @@ const Navbar: React.FC<Object> = () => {
             className={NavbarStyles['navbar-button']}
             onClick={() => isMobile && setIsExpanded(!isExpanded)}
           >
-            <Link href=''>
+            <Link href='/'>
               <a>dan n. tran</a>
             </Link>
           </li>
