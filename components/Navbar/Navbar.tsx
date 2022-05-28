@@ -1,13 +1,17 @@
+import { getIsMobile } from 'components/utils';
 import React from 'react';
+
 import NavbarDesktop from './NavbarDesktop';
 import NavbarMobile from './NavbarMobile';
 
 const Navbar: React.FC<Object> = () => {
-  return (
-    <div>
-      <NavbarDesktop />
-      <NavbarMobile />
-    </div>
+  const isMobile = getIsMobile();
+  return isMobile === null ? (
+    <div />
+  ) : isMobile === true ? (
+    <NavbarMobile />
+  ) : (
+    <NavbarDesktop />
   );
 };
 

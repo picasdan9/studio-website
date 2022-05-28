@@ -15,16 +15,3 @@
 .navbar-desktop .navbar-button:not(:first-child) {
   margin-left: 2rem;
 }
-
-@media (max-width: 767px) {
-  .navbar-desktop {
-    display: none;
-  }
-}
-
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-  .navbar-mobile {
-    display: none;
-  }
-}
