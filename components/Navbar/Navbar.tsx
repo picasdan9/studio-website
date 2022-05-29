@@ -1,4 +1,4 @@
-import { GetIsMobile } from 'components/utils';
+import useWindowDimensions from '@hooks/useDimensions';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
@@ -6,7 +6,8 @@ import { navBtns } from './constants';
 import NavbarStyles from './NavbarStyles.module.css';
 
 const Navbar: React.FC<Object> = () => {
-  const isMobile = GetIsMobile();
+  const { width } = useWindowDimensions();
+  const isMobile = width === undefined ? null : width < 768;
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [mobileNavMenuClassname, setMobileNavMenuClassname] = useState('');
