@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkUnwrapImages from 'remark-unwrap-images';
 import TextMarkdownStyles from './TextMarkdownStyles.module.css';
 
 const TextPostMarkdown: React.FC<{
@@ -21,6 +22,7 @@ const TextPostMarkdown: React.FC<{
         );
       },
     }}
+    remarkPlugins={[remarkUnwrapImages]}
   >
     {markdown}
   </ReactMarkdown>
