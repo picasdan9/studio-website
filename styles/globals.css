@@ -7,6 +7,10 @@ body {
   font-size: medium;
 }
 
+main {
+  padding: 2rem 0;
+}
+
 h1,
 h2,
 h3 {
@@ -67,6 +71,12 @@ button {
 
 * {
   box-sizing: border-box;
+}
+
+#__next {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .hidden {
