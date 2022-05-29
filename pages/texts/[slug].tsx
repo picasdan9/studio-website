@@ -9,18 +9,22 @@ import textsStyles from './textsStyles.module.css';
 
 const TextPostPage: React.FC<Post> = ({ metadata, markdownBody }) => (
   <Layout title={metadata.title}>
-    <div className={textsStyles['text-post']}>
-      <div className={textsStyles['text-metadata'] + ' sans'}>
+    <div className={textsStyles['txt-header']}>
+      <div className={textsStyles['txt-date-n-type'] + ' sans'}>
         <div>
           {new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium' }).format(
             new Date(metadata.timestamp)
           )}
         </div>
         <div>{metadata.type}</div>
-        <div className={textsStyles['text-note']}>{metadata.note}</div>
       </div>
-      <div className={textsStyles['text-content']}>
-        <h1>{metadata.title}</h1>
+      <h1 className={textsStyles['txt-title']}>
+        <b>{metadata.title}</b>
+      </h1>
+    </div>
+    <div className={textsStyles['txt-body']}>
+      <div className={textsStyles['txt-note'] + ' sans'}>{metadata.note}</div>
+      <div className={textsStyles['txt-content']}>
         <TextMarkdown slug={metadata.slug} markdown={markdownBody} />
       </div>
     </div>

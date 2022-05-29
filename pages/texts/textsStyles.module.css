@@ -1,31 +1,36 @@
-.text-post {
-  margin-top: 1rem;
-  display: grid;
-  gap: 2rem;
+.txt-header {
+  margin-bottom: 1.5rem;
 }
 
-.text-note {
-  padding-top: 1rem;
+.txt-title {
+  margin-bottom: 0;
+  max-width: 500px;
+}
+
+.txt-note {
   font-size: small;
 }
 
-@media (max-width: 575px) {
-  .text-note {
-    display: none;
-  }
+.txt-header,
+.txt-body {
+  display: grid;
+  gap: 1rem;
 }
 
 @media (min-width: 576px) {
-  .text-post {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
+  .txt-header,
+  .txt-body {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
   }
 
-  .text-content {
-    grid-column: span 8;
+  .txt-date-n-type,
+  .txt-note {
+    grid-column: span 1;
   }
 
-  .text-metadata {
-    grid-column: span 2;
+  .txt-title,
+  .txt-content {
+    grid-column: span 3;
   }
 }

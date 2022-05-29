@@ -22,7 +22,6 @@ h1 {
   font-size: x-large;
   font-weight: lighter;
   -webkit-font-smoothing: antialiased;
-  max-width: 500px;
   margin: 0 0 1.5em 0;
 }
 
@@ -30,6 +29,7 @@ h2 {
   font-size: larger;
   font-weight: lighter;
   -webkit-font-smoothing: antialiased;
+  margin-top: 0;
 }
 
 h3 {
