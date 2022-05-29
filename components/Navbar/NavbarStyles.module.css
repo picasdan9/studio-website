@@ -1,17 +1,25 @@
-.navbar-desktop {
+.nav-btn-list-desktop {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
 }
 
-.navbar-button,
-.mobile-nav-menu {
+.nav-btn,
+.nav-menu {
   font-family: Arial, Helvetica, sans-serif;
   font-size: medium;
   -webkit-font-smoothing: antialiased;
   margin: 1rem 0;
 }
 
-.navbar-desktop .navbar-button:not(:first-child) {
+.nav-menu-expanded {
+  margin-top: 1.5rem;
+}
+
+.nav-btn-list-desktop .nav-btn:not(:first-child) {
   margin-left: 2rem;
+}
+
+.nav-menu-btn-icon {
+  margin-left: 0.7rem;
 }

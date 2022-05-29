@@ -1,8 +1,4 @@
-export const navButtons = [
-  {
-    label: 'dan n. tran',
-    path: '/',
-  },
+export const navBtns = [
   {
     label: 'texts',
     path: '/texts',
