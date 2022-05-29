@@ -1,5 +1,5 @@
 import Layout from 'components/Layout';
-import TextMetadataList from 'components/TextMetadataList';
+import TextIndex from 'components/TextIndex';
 import { getAllPostMetadata } from 'lib/api';
 import { Metadata } from 'lib/models';
 import { GetStaticPropsResult } from 'next';
@@ -10,7 +10,7 @@ const TextsIndexPage: React.FC<{ metadataList: Metadata[] }> = ({
 }) => {
   return (
     <Layout title='texts'>
-      <TextMetadataList metadataList={metadataList} />
+      <TextIndex metadataList={metadataList} />
     </Layout>
   );
 };

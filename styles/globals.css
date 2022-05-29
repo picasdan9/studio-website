@@ -79,6 +79,10 @@ button {
   padding: 0 2rem;
 }
 
+.sans {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .hidden {
   display: none;
 }

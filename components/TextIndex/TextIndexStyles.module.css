@@ -1,0 +1,26 @@
+.txt-entry-grp-list {
+  display: grid;
+  gap: 2rem;
+  max-width: 640px;
+}
+
+.txt-entry-grp-yr {
+  font-size: large;
+  margin-bottom: 0.8rem;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .txt-entry-grp {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+  }
+
+  .txt-entry-grp-yr {
+    grid-column: span 3;
+  }
+
+  .txt-entry-grp-content {
+    grid-column: span 17;
+  }
+}

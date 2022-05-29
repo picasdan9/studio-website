@@ -10,7 +10,7 @@ import textsStyles from './textsStyles.module.css';
 const TextPostPage: React.FC<Post> = ({ metadata, markdownBody }) => (
   <Layout title={metadata.title}>
     <div className={textsStyles['text-post']}>
-      <div className={textsStyles['text-metadata']}>
+      <div className={textsStyles['text-metadata'] + ' sans'}>
         <div>
           {new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium' }).format(
             new Date(metadata.timestamp)

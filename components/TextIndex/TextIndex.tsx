@@ -1,9 +1,9 @@
 import { Metadata } from 'lib/models';
 import React from 'react';
-import TextMetadataGroupListItem from './TextMetadataGroupListItem';
-import TextMetdataListStyles from './TextMetadataListStyles.module.css';
+import TextEntryGroup from './TextEntryGroup';
+import TextIndexStyles from './TextIndexStyles.module.css';
 
-const TextMetadataList: React.FC<{ metadataList: Metadata[] }> = ({
+const TextIndex: React.FC<{ metadataList: Metadata[] }> = ({
   metadataList,
 }) => {
   const metadataGroupbyYear = metadataList.reduce(
@@ -12,15 +12,11 @@ const TextMetadataList: React.FC<{ metadataList: Metadata[] }> = ({
   );
 
   return (
-    <ol className={TextMetdataListStyles['text-metadata-groups-container']}>
+    <ol className={TextIndexStyles['txt-entry-grp-list']}>
       {Object.entries(metadataGroupbyYear)
         .sort(metadataGroupbyYearEntryComparator)
         .map((group, idx) => (
-          <TextMetadataGroupListItem
-            key={idx}
-            year={group[0]}
-            metadataList={group[1]}
-          />
+          <TextEntryGroup key={idx} year={group[0]} metadataList={group[1]} />
         ))}
     </ol>
   );
@@ -41,4 +37,4 @@ const metadataGroupbyYearEntryComparator = (
   group2: [string, Metadata[]]
 ): number => parseInt(group2[0], 10) - parseInt(group1[0], 10);
 
-export default TextMetadataList;
+export default TextIndex;

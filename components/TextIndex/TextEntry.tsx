@@ -1,7 +1,6 @@
 import { Metadata } from 'lib/models';
-import TextMetadataListStyles from './TextMetadataListStyles.module.css';
 
-const TextPostMetadataListItem: React.FC<Metadata> = ({
+const TextEntry: React.FC<Metadata> = ({
   slug,
   url,
   title,
@@ -12,11 +11,11 @@ const TextPostMetadataListItem: React.FC<Metadata> = ({
     <a href={url || `texts\\${slug}`}>
       <i>{title}</i>
     </a>
-    <span className={TextMetadataListStyles['text-metadata']}>
+    <span>
       , {type}
       {externalSiteName && <>, {externalSiteName}</>}
     </span>
   </li>
 );
 
-export default TextPostMetadataListItem;
+export default TextEntry;
