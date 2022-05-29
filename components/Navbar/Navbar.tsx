@@ -16,10 +16,22 @@ const Navbar: React.FC<Object> = () => {
 
   function computeNavButClassName() {
     if (isMobile !== null) {
-      // hide navbar-button only when the viewport is mobile-sized and navbar is not expanded
-      if (isExpanded || !isMobile) return NavbarStyles['navbar-button'];
-      return NavbarStyles['navbar-button'] + ' hidden';
+      // hide only when the viewport is mobile-sized and navbar is not expanded
+      let classname = NavbarStyles['navbar-button'];
+      if (isMobile && !isExpanded) classname += ' hidden';
+      return classname;
     }
+    return '';
+  }
+
+  function computeMobileNavMenuClassName() {
+    if (isMobile !== null) {
+      // hide only when the viewport is not mobile-sized or navbar is expanded
+      let classname = NavbarStyles['mobile-nav-menu'];
+      if (!isMobile || isExpanded) classname += ' hidden';
+      return classname;
+    }
+    return '';
   }
 
   return (
@@ -27,23 +39,23 @@ const Navbar: React.FC<Object> = () => {
       {isMobile === null ? (
         <div />
       ) : (
-        <ol className={!isMobile ? NavbarStyles['navbar-desktop'] : ''}>
-          <li
-            className={NavbarStyles['navbar-button']}
+        <>
+          <div
             onClick={() => isMobile && setIsExpanded(!isExpanded)}
+            className={computeMobileNavMenuClassName()}
           >
-            <Link href='/'>
-              <a>dan n. tran</a>
-            </Link>
-          </li>
-          {navButtons.map(({ label, path }) => (
-            <li key={path} className={computeNavButClassName()}>
-              <Link href={path}>
-                <a>{label}</a>
-              </Link>
-            </li>
-          ))}
-        </ol>
+            <a href='#'>dt</a>
+          </div>
+          <ol className={!isMobile ? NavbarStyles['navbar-desktop'] : ''}>
+            {navButtons.map(({ label, path }) => (
+              <li key={path} className={computeNavButClassName()}>
+                <Link href={path}>
+                  <a>{label}</a>
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </>
       )}
     </nav>
   );

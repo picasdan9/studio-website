@@ -4,12 +4,12 @@
   justify-content: flex-start;
 }
 
-.navbar-button {
+.navbar-button,
+.mobile-nav-menu {
   font-family: Arial, Helvetica, sans-serif;
   font-size: medium;
   -webkit-font-smoothing: antialiased;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 
 .navbar-desktop .navbar-button:not(:first-child) {
