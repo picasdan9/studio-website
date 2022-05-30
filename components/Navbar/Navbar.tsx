@@ -18,30 +18,30 @@ const Navbar: React.FC<Object> = () => {
   }, [isMobile]);
 
   useEffect(() => {
+    function computeNavButClassname() {
+      if (isMobile !== null) {
+        // hide only when the viewport is mobile-sized and navbar is not expanded
+        let classname = NavbarStyles['nav-btn'] + ' sans';
+        if (isMobile && !isExpanded) classname += ' hidden';
+        return classname;
+      }
+      return '';
+    }
+
+    function computeMobileNavMenuClassname() {
+      if (isMobile !== null) {
+        // hide only when the viewport is not mobile-sized or navbar is expanded
+        let classname = NavbarStyles['nav-menu'] + ' sans';
+        if (!isMobile) classname += ' hidden';
+        if (isExpanded) classname += ' ' + NavbarStyles['nav-menu-expanded'];
+        return classname;
+      }
+      return '';
+    }
+
     setMobileNavMenuClassname(computeMobileNavMenuClassname());
     setNavBtnClassname(computeNavButClassname());
   }, [isMobile, isExpanded]);
-
-  function computeNavButClassname() {
-    if (isMobile !== null) {
-      // hide only when the viewport is mobile-sized and navbar is not expanded
-      let classname = NavbarStyles['nav-btn'] + ' sans';
-      if (isMobile && !isExpanded) classname += ' hidden';
-      return classname;
-    }
-    return '';
-  }
-
-  function computeMobileNavMenuClassname() {
-    if (isMobile !== null) {
-      // hide only when the viewport is not mobile-sized or navbar is expanded
-      let classname = NavbarStyles['nav-menu'] + ' sans';
-      if (!isMobile) classname += ' hidden';
-      if (isExpanded) classname += ' ' + NavbarStyles['nav-menu-expanded'];
-      return classname;
-    }
-    return '';
-  }
 
   return (
     <nav>
