@@ -6,16 +6,27 @@ const TextEntry: React.FC<Metadata> = ({
   title,
   type,
   externalSiteName,
-}) => (
-  <li>
-    <a href={url || `texts\\${slug}`} target='_blank' rel='noreferrer'>
-      <i>{title}</i>
-    </a>
-    <span>
-      , {type}
-      {externalSiteName && <>, {externalSiteName}</>}
-    </span>
-  </li>
-);
+}) => {
+  const anchorTagProps = url
+    ? {
+        href: url,
+        target: '_blank',
+        rel: 'noreferrer',
+      }
+    : {
+        href: `texts\\${slug}`,
+      };
+  return (
+    <li>
+      <a {...anchorTagProps}>
+        <i>{title}</i>
+      </a>
+      <span>
+        , {type}
+        {externalSiteName && <>, {externalSiteName}</>}
+      </span>
+    </li>
+  );
+};
 
 export default TextEntry;
