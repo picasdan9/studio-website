@@ -13,14 +13,14 @@
 @media (min-width: 576px) {
   .txt-entry-grp {
     display: grid;
-    grid-template-columns: repeat(20, 1fr);
+    grid-template-columns: repeat(40, 1fr);
   }
 
   .txt-entry-grp-yr {
-    grid-column: span 3;
+    grid-column: span 7;
   }
 
   .txt-entry-grp-content {
-    grid-column: span 17;
+    grid-column: span 33;
   }
 }

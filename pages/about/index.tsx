@@ -4,8 +4,7 @@ import Layout from 'components/Layout';
 import styles from './aboutStyles.module.css';
 
 const EXPERIENCE_ITEMS = [
-  ['2020 - ', 'Contributing Writer, Matca, Vietnam'],
-  ['2020 - ', 'Contributing Writer, SINdie, Singapore'],
+  ['2020 - ', 'Freelance Writer'],
   ['2021', 'Festival Guide Writer, SGIFF, Singapore'],
 ];
 
@@ -57,7 +56,7 @@ const ContactIndex = () => (
         </ol>
       </section>
     ))}
-    <section className={styles['section-contact']}>
+    <section className={styles['section']}>
       <h2>Contact</h2>
       <div>
         Write to me at{' '}

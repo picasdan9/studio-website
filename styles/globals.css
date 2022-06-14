@@ -27,7 +27,6 @@ h1 {
 h2 {
   font-size: larger;
   font-weight: lighter;
-  -webkit-font-smoothing: antialiased;
   margin-top: 0;
 }
 

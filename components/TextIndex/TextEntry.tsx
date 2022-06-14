@@ -8,7 +8,7 @@ const TextEntry: React.FC<Metadata> = ({
   externalSiteName,
 }) => (
   <li>
-    <a href={url || `texts\\${slug}`}>
+    <a href={url || `texts\\${slug}`} target='_blank'>
       <i>{title}</i>
     </a>
     <span>

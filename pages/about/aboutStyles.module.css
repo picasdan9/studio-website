@@ -1,7 +1,7 @@
 .section {
-  padding-bottom: 0.5rem;
+  padding-bottom: 2rem;
 }
 
-.section-contact {
+.section:last-of-type {
   padding-top: 5rem;
 }
